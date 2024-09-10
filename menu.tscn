@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://cx2nngktbbklb"]
+
+[ext_resource type="Theme" uid="uid://ghuy2ywphiq7" path="res://FontTheme/OD_32px.tres" id="1_15a1e"]
+[ext_resource type="Script" path="res://menu.gd" id="1_b4a38"]
+[ext_resource type="Theme" uid="uid://bayuyhv7aqcrf" path="res://FontTheme/OD_48px.tres" id="2_1pspk"]
+[ext_resource type="Theme" uid="uid://dyv0gggkiltum" path="res://FontTheme/OD_24px.tres" id="4_gyi0v"]
+[ext_resource type="PackedScene" uid="uid://bmug8qi3qyxox" path="res://options.tscn" id="4_stxlp"]
+
+[node name="Menu" type="CanvasLayer"]
+script = ExtResource("1_b4a38")
+
+[node name="LabelTitle" type="Label" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 128.0
+grow_horizontal = 2
+theme = ExtResource("2_1pspk")
+text = "Ichi Nichi"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Options" parent="." instance=ExtResource("4_stxlp")]
+visible = false
+
+[node name="VBoxButton" type="VBoxContainer" parent="."]
+offset_top = 124.0
+offset_right = 1152.0
+offset_bottom = 486.0
+theme = ExtResource("4_gyi0v")
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ButtonPlay" type="Button" parent="VBoxButton"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Play"
+
+[node name="ButtonOption" type="Button" parent="VBoxButton"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Option"
+
+[node name="ButtonCredits" type="Button" parent="VBoxButton"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Credits"
+
+[node name="ButtonQuit" type="Button" parent="VBoxButton"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Quit"
+
+[node name="VBoxCredits" type="VBoxContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_gyi0v")
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="LabelCredits" type="Label" parent="VBoxCredits"]
+layout_mode = 2
+theme = ExtResource("1_15a1e")
+text = "Anissa
+Chloé
+Sam
+Mehdi
+Maël"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonBack" type="Button" parent="VBoxCredits"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Back"
+
+[connection signal="visibility_changed" from="Options" to="." method="_on_options_visibility_changed"]
+[connection signal="pressed" from="VBoxButton/ButtonPlay" to="." method="_on_button_play_pressed"]
+[connection signal="pressed" from="VBoxButton/ButtonOption" to="." method="_on_button_option_pressed"]
+[connection signal="pressed" from="VBoxButton/ButtonCredits" to="." method="_on_button_credits_pressed"]
+[connection signal="pressed" from="VBoxButton/ButtonQuit" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="VBoxCredits/ButtonBack" to="." method="_on_button_back_pressed"]

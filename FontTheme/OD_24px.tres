@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dyv0gggkiltum"]
+
+[ext_resource type="FontFile" uid="uid://ckm36xhty6qab" path="res://Font/opendyslexic-0.91.12/compiled/OpenDyslexic-Regular.otf" id="1_y6pyt"]
+
+[resource]
+default_font = ExtResource("1_y6pyt")
+default_font_size = 24
