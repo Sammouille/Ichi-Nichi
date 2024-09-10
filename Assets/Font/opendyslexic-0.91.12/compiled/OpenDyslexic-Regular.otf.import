@@ -3,19 +3,18 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://ckm36xhty6qab"
-path="res://.godot/imported/OpenDyslexic-Regular.otf-8c71424ad7b71f62cc90610acb9a5ccb.fontdata"
+path="res://.godot/imported/OpenDyslexic-Regular.otf-855e3f9e5d7c8ecc903994b39f78fc3f.fontdata"
 
 [deps]
 
-source_file="res://Font/opendyslexic-0.91.12/compiled/OpenDyslexic-Regular.otf"
-dest_files=["res://.godot/imported/OpenDyslexic-Regular.otf-8c71424ad7b71f62cc90610acb9a5ccb.fontdata"]
+source_file="res://Assets/Font/opendyslexic-0.91.12/compiled/OpenDyslexic-Regular.otf"
+dest_files=["res://.godot/imported/OpenDyslexic-Regular.otf-855e3f9e5d7c8ecc903994b39f78fc3f.fontdata"]
 
 [params]
 
 Rendering=null
 antialiasing=1
 generate_mipmaps=false
-disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48

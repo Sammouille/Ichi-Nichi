@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b3h6ax4qyh4ee"
-path="res://.godot/imported/fondnoir.jpg-7e37156a2b421454750992713eb8a8ca.ctex"
+path="res://.godot/imported/fondnoir.jpg-3272cdc005d80e9896df131781afc4bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fondnoir.jpg"
-dest_files=["res://.godot/imported/fondnoir.jpg-7e37156a2b421454750992713eb8a8ca.ctex"]
+source_file="res://Assets/2D/fondnoir.jpg"
+dest_files=["res://.godot/imported/fondnoir.jpg-3272cdc005d80e9896df131781afc4bc.ctex"]
 
 [params]
 

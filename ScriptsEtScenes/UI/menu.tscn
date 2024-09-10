@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://cx2nngktbbklb"]
 
-[ext_resource type="Theme" uid="uid://ghuy2ywphiq7" path="res://FontTheme/OD_32px.tres" id="1_15a1e"]
-[ext_resource type="Script" path="res://menu.gd" id="1_b4a38"]
-[ext_resource type="Theme" uid="uid://bayuyhv7aqcrf" path="res://FontTheme/OD_48px.tres" id="2_1pspk"]
-[ext_resource type="Theme" uid="uid://dyv0gggkiltum" path="res://FontTheme/OD_24px.tres" id="4_gyi0v"]
-[ext_resource type="PackedScene" uid="uid://bmug8qi3qyxox" path="res://options.tscn" id="4_stxlp"]
+[ext_resource type="Theme" uid="uid://ghuy2ywphiq7" path="res://Assets/FontTheme/OD_32px.tres" id="1_15a1e"]
+[ext_resource type="Script" path="res://ScriptsEtScenes/UI/menu.gd" id="1_b4a38"]
+[ext_resource type="Theme" uid="uid://bayuyhv7aqcrf" path="res://Assets/FontTheme/OD_48px.tres" id="2_1pspk"]
+[ext_resource type="Theme" uid="uid://dyv0gggkiltum" path="res://Assets/FontTheme/OD_24px.tres" id="4_gyi0v"]
+[ext_resource type="PackedScene" uid="uid://bmug8qi3qyxox" path="res://ScriptsEtScenes/UI/options.tscn" id="4_stxlp"]
 
 [node name="Menu" type="CanvasLayer"]
 script = ExtResource("1_b4a38")

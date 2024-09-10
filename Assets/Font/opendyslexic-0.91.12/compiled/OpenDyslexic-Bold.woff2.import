@@ -2,20 +2,19 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://7g6a0mcdjcag"
-path="res://.godot/imported/OpenDyslexic-Regular.woff2-a134c68b19da85ac5f3bbde271d34b03.fontdata"
+uid="uid://bbswru8k66rnq"
+path="res://.godot/imported/OpenDyslexic-Bold.woff2-576276f7d4a2633c8428c7755ea9bd20.fontdata"
 
 [deps]
 
-source_file="res://Font/opendyslexic-0.91.12/compiled/OpenDyslexic-Regular.woff2"
-dest_files=["res://.godot/imported/OpenDyslexic-Regular.woff2-a134c68b19da85ac5f3bbde271d34b03.fontdata"]
+source_file="res://Assets/Font/opendyslexic-0.91.12/compiled/OpenDyslexic-Bold.woff2"
+dest_files=["res://.godot/imported/OpenDyslexic-Bold.woff2-576276f7d4a2633c8428c7755ea9bd20.fontdata"]
 
 [params]
 
 Rendering=null
 antialiasing=1
 generate_mipmaps=false
-disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48
