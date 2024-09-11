@@ -1,0 +1,127 @@
+[gd_scene load_steps=9 format=3 uid="uid://c72rg4qbq0p4o"]
+
+[ext_resource type="Texture2D" uid="uid://buide0ypghdst" path="res://Assets/2D/livre.png" id="1_1acdp"]
+[ext_resource type="Script" path="res://ScriptsEtScenes/UI/hud_livre.gd" id="1_b8u0f"]
+[ext_resource type="Texture2D" uid="uid://fc6owvov8cb8" path="res://Assets/2D/insect/ob_47559e_scarabeekabutodore.png" id="3_qg4l0"]
+[ext_resource type="Texture2D" uid="uid://d37x5vpo1fq2v" path="res://Assets/2D/insect/criquet-jacasseur-848x601.png" id="4_6dpcy"]
+[ext_resource type="Texture2D" uid="uid://or8do2fnk584" path="res://Assets/2D/insect/15041.png" id="5_g7u87"]
+[ext_resource type="Theme" uid="uid://boqcbpouxoop8" path="res://Assets/FontTheme/OD_16px.tres" id="5_w4j1s"]
+[ext_resource type="Texture2D" uid="uid://c8t8l54h5ofpy" path="res://Assets/2D/insect/878036.png" id="6_aeqq5"]
+[ext_resource type="Texture2D" uid="uid://dii1h2tbsx6r" path="res://Assets/2D/insect/chaise-rey-rembourree-hay.png" id="7_quq8m"]
+
+[node name="HUDLivre" type="CanvasLayer"]
+script = ExtResource("1_b8u0f")
+
+[node name="Livre" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1acdp")
+expand_mode = 5
+
+[node name="Scarabe_dore" type="TextureRect" parent="."]
+visible = false
+offset_left = 449.0
+offset_top = 650.0
+offset_right = 637.0
+offset_bottom = 883.0
+rotation = -1.5708
+texture = ExtResource("3_qg4l0")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="LabelCriquet" type="Label" parent="Scarabe_dore"]
+offset_left = 191.0
+offset_top = -15.0
+offset_right = 482.0
+offset_bottom = 23.0
+rotation = 1.5708
+theme = ExtResource("5_w4j1s")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Il brille !"
+horizontal_alignment = 1
+
+[node name="Criquet" type="TextureRect" parent="."]
+visible = false
+offset_left = 213.0
+offset_top = 22.0
+offset_right = 499.0
+offset_bottom = 183.0
+texture = ExtResource("4_6dpcy")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="LabelCriquet" type="Label" parent="Criquet"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 163.0
+offset_right = 295.0
+offset_bottom = 201.0
+theme = ExtResource("5_w4j1s")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Il a l'air rapide celui là !"
+horizontal_alignment = 1
+
+[node name="Scarabe" type="TextureRect" parent="."]
+visible = false
+offset_left = 700.0
+offset_top = 194.0
+offset_right = 847.0
+offset_bottom = 381.0
+rotation = -1.5708
+texture = ExtResource("5_g7u87")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="LabelCriquet" type="Label" parent="Scarabe"]
+offset_left = -3.99999
+offset_top = -45.0
+offset_right = 287.0
+offset_bottom = -7.0
+rotation = 1.5708
+theme = ExtResource("5_w4j1s")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Téma le scarabé !"
+horizontal_alignment = 1
+
+[node name="Luciole" type="TextureRect" parent="."]
+visible = false
+offset_left = 262.0
+offset_top = 422.0
+offset_right = 424.0
+offset_bottom = 604.0
+rotation = -1.5708
+texture = ExtResource("6_aeqq5")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="LabelCriquet" type="Label" parent="Luciole"]
+offset_left = -2.99999
+offset_top = -42.0
+offset_right = 288.0
+offset_bottom = -4.0
+rotation = 1.5708
+theme = ExtResource("5_w4j1s")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Que la lumière soit !"
+
+[node name="Chaise" type="TextureRect" parent="."]
+visible = false
+offset_left = 599.0
+offset_top = 247.0
+offset_right = 1021.0
+offset_bottom = 432.0
+texture = ExtResource("7_quq8m")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="LabelCriquet" type="Label" parent="Chaise"]
+offset_left = 29.0
+offset_top = 171.0
+offset_right = 468.0
+offset_bottom = 209.0
+theme = ExtResource("5_w4j1s")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "WIDE CHAIR TU TUT UTTUTUTUT"
