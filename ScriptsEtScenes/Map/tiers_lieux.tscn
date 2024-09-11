@@ -1,0 +1,259 @@
+[gd_scene load_steps=5 format=3 uid="uid://djcs313s8byon"]
+
+[ext_resource type="Texture2D" uid="uid://c00irbjkt7kag" path="res://Assets/2D/TextureBlocJumpV1.jpg" id="1_12j2h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xoye"]
+albedo_color = Color(0.0980392, 0.529412, 0.0627451, 1)
+albedo_texture = ExtResource("1_12j2h")
+uv1_triplanar = true
+uv1_triplanar_sharpness = 57.68
+
+[sub_resource type="BoxMesh" id="BoxMesh_trfu1"]
+size = Vector3(10, 4, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cp6eg"]
+albedo_color = Color(0.113725, 0.447059, 1, 1)
+
+[node name="TiersLieux" type="Node3D"]
+
+[node name="GroundMesh" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+use_collision = true
+radius = 100.0
+material = SubResource("StandardMaterial3D_4xoye")
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9376, 1, 0)
+operation = 2
+size = Vector3(51.2235, 2, 12)
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere2" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, 43.4123, 1, 0.937003)
+operation = 2
+size = Vector3(10, 2, 12)
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere3" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, 0.939693, 32.792, 1, 3.72263)
+operation = 2
+size = Vector3(10, 2, 12)
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere4" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(0.866026, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866026, 23.0034, 1, 8.33194)
+operation = 2
+size = Vector3(10, 2, 12)
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere5" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(0.766045, 0, 0.642788, 0, 1, 0, -0.642788, 0, 0.766045, 14.0584, 1, 14.6075)
+operation = 2
+size = Vector3(10, 2, 12)
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere6" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(0.5, 0, 0.866026, 0, 1, 0, -0.866026, 0, 0.5, 6.53717, 1, 23.481)
+operation = 2
+size = Vector3(10, 2, 12)
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere7" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, 2.68809, 1, 34.1346)
+operation = 2
+size = Vector3(10, 2, 12)
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere9" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(0.992803, 0, -0.119756, 0, 1, 0, 0.119756, 0, 0.992803, 1.62911, 1, 39.3567)
+operation = 2
+size = Vector3(11.6249, 2, 2.11243)
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere10" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(0.938734, 0, -0.344643, 0, 1, 0, 0.344643, 0, 0.938734, 3.75784, 1, 28.2724)
+operation = 2
+size = Vector3(11.5366, 2, 4.12289)
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere11" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(0.766112, 0, -0.642707, 0, 1, 0, 0.642707, 0, 0.766112, 9.7103, 1, 18.3585)
+operation = 2
+size = Vector3(11.7325, 2, 4.12289)
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere12" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(0.577829, 0, -0.816158, 0, 1, 0, 0.816158, 0, 0.577829, 18.5373, 1, 11.0242)
+operation = 2
+size = Vector3(12.0879, 2, 2.47252)
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere13" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(0.449319, 0, -0.893371, 0, 1, 0, 0.893371, 0, 0.449319, 27.8235, 1, 5.52198)
+operation = 2
+size = Vector3(11.8235, 2, 2.27141)
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere14" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(0.221072, 0, -0.975257, 0, 1, 0, 0.975257, 0, 0.221072, 38.1576, 1, 1.82901)
+operation = 2
+size = Vector3(11.829, 2, 3.01195)
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere15" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(0.0948553, 0, -0.995491, 0, 1, 0, 0.995491, 0, 0.0948553, 48.7335, 1, -0.0157178)
+operation = 2
+size = Vector3(11.8428, 2, 2.43566)
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere8" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.73769, 1, 79.6213)
+operation = 2
+size = Vector3(80, 2, 12)
+metadata/_edit_lock_ = true
+
+[node name="Village" type="Node3D" parent="."]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Village"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85, 1, -20)
+mesh = SubResource("BoxMesh_trfu1")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Village"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 1, -20)
+mesh = SubResource("BoxMesh_trfu1")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Village"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55, 1, -20)
+mesh = SubResource("BoxMesh_trfu1")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D7" type="CSGMesh3D" parent="Village"]
+transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, 38.093, 1, -18)
+mesh = SubResource("BoxMesh_trfu1")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="Village"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85, 1, 20)
+mesh = SubResource("BoxMesh_trfu1")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D5" type="CSGMesh3D" parent="Village"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 1, 20)
+mesh = SubResource("BoxMesh_trfu1")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D6" type="CSGMesh3D" parent="Village"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55, 1, 20)
+mesh = SubResource("BoxMesh_trfu1")
+metadata/_edit_lock_ = true
+
+[node name="Riviere" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="CreuxRiviere" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9376, -3, 0)
+operation = 2
+size = Vector3(51.2235, 2, 12)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere2" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, 43.4123, -3, 0.937003)
+operation = 2
+size = Vector3(10, 2, 12)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere3" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, 0.939693, 32.792, -3, 3.72263)
+operation = 2
+size = Vector3(10, 2, 12)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere4" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(0.866026, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866026, 23.0034, -3, 8.33194)
+operation = 2
+size = Vector3(10, 2, 12)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere5" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(0.766045, 0, 0.642788, 0, 1, 0, -0.642788, 0, 0.766045, 14.0584, -3, 14.6075)
+operation = 2
+size = Vector3(10, 2, 12)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere6" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(0.5, 0, 0.866026, 0, 1, 0, -0.866026, 0, 0.5, 6.53717, -3, 23.481)
+operation = 2
+size = Vector3(10, 2, 12)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere7" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, 2.68809, -3, 34.1346)
+operation = 2
+size = Vector3(10, 2, 12)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere9" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(0.992803, 0, -0.119756, 0, 1, 0, 0.119756, 0, 0.992803, 1.62911, -3, 39.3567)
+operation = 2
+size = Vector3(11.6249, 2, 2.11243)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere10" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(0.938734, 0, -0.344643, 0, 1, 0, 0.344643, 0, 0.938734, 3.75784, -3, 28.2724)
+operation = 2
+size = Vector3(11.5366, 2, 4.12289)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere11" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(0.766112, 0, -0.642707, 0, 1, 0, 0.642707, 0, 0.766112, 9.7103, -3, 18.3585)
+operation = 2
+size = Vector3(11.7325, 2, 4.12289)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere12" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(0.577829, 0, -0.816158, 0, 1, 0, 0.816158, 0, 0.577829, 18.5373, -3, 11.0242)
+operation = 2
+size = Vector3(12.0879, 2, 2.47252)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere13" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(0.449319, 0, -0.893371, 0, 1, 0, 0.893371, 0, 0.449319, 27.8235, -3, 5.52198)
+operation = 2
+size = Vector3(11.8235, 2, 2.27141)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere14" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(0.221072, 0, -0.975257, 0, 1, 0, 0.975257, 0, 0.221072, 38.1576, -3, 1.82901)
+operation = 2
+size = Vector3(11.829, 2, 3.01195)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere15" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(0.0948553, 0, -0.995491, 0, 1, 0, 0.995491, 0, 0.0948553, 48.7335, -3, -0.0157178)
+operation = 2
+size = Vector3(11.8428, 2, 2.43566)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere8" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.73769, -3, 79.6213)
+operation = 2
+size = Vector3(80, 2, 12)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
