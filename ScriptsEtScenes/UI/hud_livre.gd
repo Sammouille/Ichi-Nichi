@@ -56,3 +56,7 @@ func chaise_obtained():
 func shiny_obtained():
 	texture_livre.texture = preload_texture_livre_shiny
 	scarabe_dore.visible = true
+
+
+func _on_button_back_pressed() -> void:
+	self.visible = false

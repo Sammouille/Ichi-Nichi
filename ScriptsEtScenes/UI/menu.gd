@@ -4,10 +4,19 @@ extends CanvasLayer
 @onready var vboxcredits = $VBoxCredits
 @onready var options = $Options
 
+@onready var button_livre = $VBoxButton/ButtonLivre
+
+signal show_book
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	if get_tree().current_scene.name == "TiersLieux":
+		button_livre.visible = true
 
+
+#func _input(event: InputEvent) -> void:
+	#if Input.is_action_just_pressed("Pause") and get_tree().current_scene.name == "TiersLieux" :
+		#self.visible = !self.visible
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -15,7 +24,8 @@ func _process(delta: float) -> void:
 
 
 func _on_button_play_pressed() -> void:
-	pass # Replace with function body.
+	if get_tree().current_scene.name == "TiersLieux" :
+		self.visible = false
 
 
 func _on_button_option_pressed() -> void:
@@ -39,3 +49,12 @@ func _on_button_back_pressed() -> void:
 
 func _on_options_visibility_changed() -> void:
 	vboxbutton.visible = true
+
+
+func _on_button_livre_pressed() -> void:
+	emit_signal("show_book")
+
+
+func _on_visibility_changed() -> void:
+	if options != null:
+		options.visible = false

@@ -6,9 +6,12 @@ extends CanvasLayer
 @onready var keyboardinput = $ShowInput/KeyboardInput
 @onready var controllerinput = $ShowInput/ControllerInput
 
+@onready var button_quit = $VBoxOptions/VBoxButton/ButtonQuit
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	if get_tree().current_scene.name == "TiersLieux" :
+		button_quit.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

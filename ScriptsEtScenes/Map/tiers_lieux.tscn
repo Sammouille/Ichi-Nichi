@@ -1,7 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://djcs313s8byon"]
+[gd_scene load_steps=23 format=3 uid="uid://djcs313s8byon"]
 
 [ext_resource type="Texture2D" uid="uid://c00irbjkt7kag" path="res://Assets/2D/TextureBlocJumpV1.jpg" id="1_12j2h"]
+[ext_resource type="Script" path="res://ScriptsEtScenes/Map/tiers_lieux.gd" id="1_o8rsa"]
 [ext_resource type="PackedScene" uid="uid://b1rrltdjkgbfv" path="res://ScriptsEtScenes/Personnage/perso.tscn" id="2_1noys"]
+[ext_resource type="PackedScene" uid="uid://cx2nngktbbklb" path="res://ScriptsEtScenes/UI/menu.tscn" id="3_q8p0b"]
+[ext_resource type="PackedScene" uid="uid://c72rg4qbq0p4o" path="res://ScriptsEtScenes/UI/hud_livre.tscn" id="5_e6vxp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xoye"]
 albedo_color = Color(0.0980392, 0.529412, 0.0627451, 1)
@@ -62,6 +65,7 @@ ambient_light_color = Color(0.972549, 1, 1, 1)
 ambient_light_energy = 0.5
 
 [node name="TiersLieux" type="Node3D"]
+script = ExtResource("1_o8rsa")
 
 [node name="Perso" parent="." instance=ExtResource("2_1noys")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.4451, 0, -15.6893)
@@ -2292,3 +2296,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -498.708, 106.665, -0.592999)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0eumw")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.950163, 0, -0.311754, 0, 1, 0, 0.311754, 0, -0.950163, 0, 3.42706, 0)
+
+[node name="Menu" parent="." instance=ExtResource("3_q8p0b")]
+visible = false
+
+[node name="HUDLivre" parent="." instance=ExtResource("5_e6vxp")]
+visible = false
+
+[connection signal="show_book" from="Menu" to="." method="_on_menu_show_book"]

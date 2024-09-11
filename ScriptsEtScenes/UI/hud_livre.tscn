@@ -1,16 +1,27 @@
-[gd_scene load_steps=9 format=3 uid="uid://c72rg4qbq0p4o"]
+[gd_scene load_steps=11 format=3 uid="uid://c72rg4qbq0p4o"]
 
 [ext_resource type="Texture2D" uid="uid://buide0ypghdst" path="res://Assets/2D/livre.png" id="1_1acdp"]
 [ext_resource type="Script" path="res://ScriptsEtScenes/UI/hud_livre.gd" id="1_b8u0f"]
+[ext_resource type="Texture2D" uid="uid://b3h6ax4qyh4ee" path="res://Assets/2D/fondnoir.jpg" id="2_kjqee"]
 [ext_resource type="Texture2D" uid="uid://fc6owvov8cb8" path="res://Assets/2D/insect/ob_47559e_scarabeekabutodore.png" id="3_qg4l0"]
 [ext_resource type="Texture2D" uid="uid://d37x5vpo1fq2v" path="res://Assets/2D/insect/criquet-jacasseur-848x601.png" id="4_6dpcy"]
 [ext_resource type="Texture2D" uid="uid://or8do2fnk584" path="res://Assets/2D/insect/15041.png" id="5_g7u87"]
 [ext_resource type="Theme" uid="uid://boqcbpouxoop8" path="res://Assets/FontTheme/OD_16px.tres" id="5_w4j1s"]
 [ext_resource type="Texture2D" uid="uid://c8t8l54h5ofpy" path="res://Assets/2D/insect/878036.png" id="6_aeqq5"]
 [ext_resource type="Texture2D" uid="uid://dii1h2tbsx6r" path="res://Assets/2D/insect/chaise-rey-rembourree-hay.png" id="7_quq8m"]
+[ext_resource type="Theme" uid="uid://dyv0gggkiltum" path="res://Assets/FontTheme/OD_24px.tres" id="9_3kgq6"]
 
 [node name="HUDLivre" type="CanvasLayer"]
 script = ExtResource("1_b8u0f")
+
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.313726)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kjqee")
 
 [node name="Livre" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -125,3 +136,14 @@ offset_bottom = 209.0
 theme = ExtResource("5_w4j1s")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "WIDE CHAIR TU TUT UTTUTUTUT"
+
+[node name="ButtonBack" type="Button" parent="."]
+offset_left = 192.0
+offset_top = 583.0
+offset_right = 277.0
+offset_bottom = 636.0
+theme = ExtResource("9_3kgq6")
+text = "Back"
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="ButtonBack" to="." method="_on_button_back_pressed"]

@@ -1,13 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://cx2nngktbbklb"]
+[gd_scene load_steps=7 format=3 uid="uid://cx2nngktbbklb"]
 
 [ext_resource type="Theme" uid="uid://ghuy2ywphiq7" path="res://Assets/FontTheme/OD_32px.tres" id="1_15a1e"]
 [ext_resource type="Script" path="res://ScriptsEtScenes/UI/menu.gd" id="1_b4a38"]
 [ext_resource type="Theme" uid="uid://bayuyhv7aqcrf" path="res://Assets/FontTheme/OD_48px.tres" id="2_1pspk"]
+[ext_resource type="Texture2D" uid="uid://b3h6ax4qyh4ee" path="res://Assets/2D/fondnoir.jpg" id="2_t3unc"]
 [ext_resource type="Theme" uid="uid://dyv0gggkiltum" path="res://Assets/FontTheme/OD_24px.tres" id="4_gyi0v"]
 [ext_resource type="PackedScene" uid="uid://bmug8qi3qyxox" path="res://ScriptsEtScenes/UI/options.tscn" id="4_stxlp"]
 
 [node name="Menu" type="CanvasLayer"]
 script = ExtResource("1_b4a38")
+
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.313726)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_t3unc")
 
 [node name="LabelTitle" type="Label" parent="."]
 anchors_preset = 10
@@ -23,9 +33,17 @@ vertical_alignment = 1
 visible = false
 
 [node name="VBoxButton" type="VBoxContainer" parent="."]
-offset_top = 124.0
-offset_right = 1152.0
-offset_bottom = 486.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -181.0
+offset_right = 576.0
+offset_bottom = 181.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("4_gyi0v")
 theme_override_constants/separation = 20
 alignment = 1
@@ -35,6 +53,12 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Play"
+
+[node name="ButtonLivre" type="Button" parent="VBoxButton"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Livre"
 
 [node name="ButtonOption" type="Button" parent="VBoxButton"]
 layout_mode = 2
@@ -82,8 +106,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Back"
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="visibility_changed" from="Options" to="." method="_on_options_visibility_changed"]
 [connection signal="pressed" from="VBoxButton/ButtonPlay" to="." method="_on_button_play_pressed"]
+[connection signal="pressed" from="VBoxButton/ButtonLivre" to="." method="_on_button_livre_pressed"]
 [connection signal="pressed" from="VBoxButton/ButtonOption" to="." method="_on_button_option_pressed"]
 [connection signal="pressed" from="VBoxButton/ButtonCredits" to="." method="_on_button_credits_pressed"]
 [connection signal="pressed" from="VBoxButton/ButtonQuit" to="." method="_on_button_quit_pressed"]
