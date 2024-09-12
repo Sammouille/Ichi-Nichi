@@ -12,6 +12,7 @@
 [ext_resource type="Theme" uid="uid://dyv0gggkiltum" path="res://Assets/FontTheme/OD_24px.tres" id="9_3kgq6"]
 
 [node name="HUDLivre" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_b8u0f")
 
 [node name="Background" type="TextureRect" parent="."]
@@ -44,6 +45,7 @@ expand_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="LabelCriquet" type="Label" parent="Scarabe_dore"]
+layout_mode = 0
 offset_left = 191.0
 offset_top = -15.0
 offset_right = 482.0
@@ -87,6 +89,7 @@ expand_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="LabelCriquet" type="Label" parent="Scarabe"]
+layout_mode = 0
 offset_left = -3.99999
 offset_top = -45.0
 offset_right = 287.0
@@ -109,6 +112,7 @@ expand_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="LabelCriquet" type="Label" parent="Luciole"]
+layout_mode = 0
 offset_left = -2.99999
 offset_top = -42.0
 offset_right = 288.0
@@ -129,6 +133,7 @@ expand_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="LabelCriquet" type="Label" parent="Chaise"]
+layout_mode = 0
 offset_left = 29.0
 offset_top = 171.0
 offset_right = 468.0
@@ -146,4 +151,5 @@ theme = ExtResource("9_3kgq6")
 text = "Back"
 metadata/_edit_lock_ = true
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="ButtonBack" to="." method="_on_button_back_pressed"]

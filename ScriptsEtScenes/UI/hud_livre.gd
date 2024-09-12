@@ -10,10 +10,14 @@ extends CanvasLayer
 @onready var luciole = $Luciole
 @onready var chaise = $Chaise
 
+@onready var button_back = $ButtonBack
+
+
+signal hiding_livre
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	button_back.grab_focus()
 
 
 func _input(event: InputEvent) -> void:
@@ -60,3 +64,8 @@ func shiny_obtained():
 
 func _on_button_back_pressed() -> void:
 	self.visible = false
+	emit_signal("hiding_livre")
+
+func _on_visibility_changed() -> void:
+	if self.visible:
+		button_back.grab_focus()

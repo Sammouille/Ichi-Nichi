@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bmug8qi3qyxox" path="res://ScriptsEtScenes/UI/options.tscn" id="4_stxlp"]
 
 [node name="Menu" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_b4a38")
 
 [node name="Background" type="TextureRect" parent="."]
@@ -52,30 +53,50 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_neighbor_top = NodePath("../ButtonQuit")
+focus_neighbor_bottom = NodePath("../ButtonOption")
+focus_next = NodePath("../ButtonQuit")
+focus_previous = NodePath("../ButtonOption")
 text = "Play"
 
 [node name="ButtonLivre" type="Button" parent="VBoxButton"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../ButtonPlay")
+focus_neighbor_bottom = NodePath("../ButtonOption")
+focus_next = NodePath("../ButtonPlay")
+focus_previous = NodePath("../ButtonOption")
 text = "Livre"
 
 [node name="ButtonOption" type="Button" parent="VBoxButton"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_neighbor_top = NodePath("../ButtonPlay")
+focus_neighbor_bottom = NodePath("../ButtonCredits")
+focus_next = NodePath("../ButtonPlay")
+focus_previous = NodePath("../ButtonCredits")
 text = "Option"
 
 [node name="ButtonCredits" type="Button" parent="VBoxButton"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_neighbor_top = NodePath("../ButtonOption")
+focus_neighbor_bottom = NodePath("../ButtonQuit")
+focus_next = NodePath("../ButtonOption")
+focus_previous = NodePath("../ButtonQuit")
 text = "Credits"
 
 [node name="ButtonQuit" type="Button" parent="VBoxButton"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_neighbor_top = NodePath("../ButtonCredits")
+focus_neighbor_bottom = NodePath("../ButtonPlay")
+focus_next = NodePath("../ButtonCredits")
+focus_previous = NodePath("../ButtonPlay")
 text = "Quit"
 
 [node name="VBoxCredits" type="VBoxContainer" parent="."]
