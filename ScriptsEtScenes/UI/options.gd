@@ -19,6 +19,7 @@ func _ready() -> void:
 		button_quit.visible = false
 
 
+@warning_ignore("unused_parameter")
 func _input(event: InputEvent) -> void:
 	if self.visible and Input.is_action_just_pressed("manette_retour_menu"):
 		
@@ -31,6 +32,7 @@ func _input(event: InputEvent) -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	pass
 
