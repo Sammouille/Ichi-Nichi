@@ -1,4 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1rrltdjkgbfv"]
+[gd_scene load_steps=12 format=3 uid="uid://b1rrltdjkgbfv"]
+
+[ext_resource type="Script" path="res://ScriptsEtScenes/Personnage/PersoMouvement.gd" id="1_6xcu8"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_yuuvw"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_ufb3x"]
+[ext_resource type="Script" path="res://ScriptsEtScenes/Personnage/BrasCam.gd" id="4_6n23y"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="4_rob0g"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_par73"]
+
+[sub_resource type="Resource" id="Resource_mup55"]
+script = ExtResource("3_ufb3x")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_2p60j"]
+script = ExtResource("4_rob0g")
+cull_mask = 1048575
+h_offset = 0.0
+v_offset = 0.0
+projection = 0
+fov = 75.0
+size = 1.0
+frustum_offset = Vector2(0, 0)
+near = 0.05
+far = 4000.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1wa7k"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kjrex"]
 
@@ -6,7 +33,24 @@
 
 [node name="Perso" type="Node3D"]
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 0, -2.18557e-07)
+script = ExtResource("2_yuuvw")
+follow_mode = 6
+follow_target = NodePath("../CharacterBody3D")
+tween_resource = SubResource("Resource_mup55")
+camera_3d_resource = SubResource("Resource_2p60j")
+follow_distance = 5.0
+spring_length = 5.0
+shape = SubResource("SphereShape3D_1wa7k")
+
+[node name="Node" type="Node" parent="PhantomCamera3D"]
+script = ExtResource("4_6n23y")
+
+[node name="CharacterBody3D" type="RigidBody3D" parent="." node_paths=PackedStringArray("pcam")]
+gravity_scale = 0.0
+script = ExtResource("1_6xcu8")
+pcam = NodePath("../PhantomCamera3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
 mesh = SubResource("CapsuleMesh_kjrex")
@@ -14,3 +58,9 @@ skeleton = NodePath("../CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 shape = SubResource("CapsuleShape3D_cnkat")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 0, -2.18557e-07)
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D"]
+script = ExtResource("5_par73")
