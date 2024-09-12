@@ -10,6 +10,8 @@ extends CharacterBody3D
 @onready var texture_lanterne = $Object/HBoxObject/lanterne
 @onready var texture_fossile = $Object/HBoxObject/fossile
 
+@onready var indic_interact = $Object/IndicInteract
+
 var orientation_pcam : float
 
 const BASE_SPEED = 1.5
@@ -149,15 +151,19 @@ func _physics_process(delta: float) -> void:
 func _on_area_detect_pnj_area_entered(area: Area3D) -> void:
 	if area.get_parent().is_in_group("PNJ"):
 		pnj_in_range = area.get_parent()
+		indic_interact.visible = true
 	
 	if area.get_parent().is_in_group("Collectible"):
 		collectible_in_range = area.get_parent()
+		indic_interact.visible = true
 
 
 func _on_area_detect_pnj_area_exited(area: Area3D) -> void:
 	if area.get_parent().is_in_group("PNJ"):
 		pnj_in_range = null
 		dialog.visible = false
+		indic_interact.visible = false
 	
 	if area.get_parent().is_in_group("Collectible"):
 		collectible_in_range = null
+		indic_interact.visible = false

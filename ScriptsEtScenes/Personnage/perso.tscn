@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b1rrltdjkgbfv"]
+[gd_scene load_steps=22 format=3 uid="uid://b1rrltdjkgbfv"]
 
 [ext_resource type="Script" path="res://ScriptsEtScenes/Personnage/perso.gd" id="1_ll3eq"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_yuuvw"]
@@ -8,11 +8,13 @@
 [ext_resource type="Script" path="res://ScriptsEtScenes/Personnage/PersoBodyMouvement.gd" id="5_5uk3d"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_par73"]
 [ext_resource type="Texture2D" uid="uid://b3h6ax4qyh4ee" path="res://Assets/2D/fondnoir.jpg" id="7_byc1i"]
+[ext_resource type="Theme" uid="uid://boqcbpouxoop8" path="res://Assets/FontTheme/OD_16px.tres" id="8_5376s"]
 [ext_resource type="Theme" uid="uid://dyv0gggkiltum" path="res://Assets/FontTheme/OD_24px.tres" id="8_q56jx"]
 [ext_resource type="Texture2D" uid="uid://bqt4hfv7hqmuh" path="res://Assets/2D/object/64x64/bonbon.png" id="9_ieigg"]
 [ext_resource type="Texture2D" uid="uid://cqdm8y5lcpvr4" path="res://Assets/2D/object/64x64/poupee.png" id="10_fjl37"]
 [ext_resource type="Texture2D" uid="uid://cqfe2lsjoak3g" path="res://Assets/2D/object/64x64/lanterne.png" id="11_1jhb5"]
 [ext_resource type="Texture2D" uid="uid://bi8byen4dynek" path="res://Assets/2D/object/64x64/fossile.png" id="12_sik1u"]
+[ext_resource type="Texture2D" uid="uid://ujs5jdvmkdbe" path="res://Assets/2D/Input/indication_interact_v2.png" id="13_5ctmx"]
 
 [sub_resource type="Resource" id="Resource_mup55"]
 script = ExtResource("3_ufb3x")
@@ -84,6 +86,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_byc1i")
 expand_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="LabelDialogPNJ" type="Label" parent="CharacterBody3D/Dialog/Background"]
 layout_mode = 1
@@ -109,6 +112,7 @@ offset_right = 1.0
 offset_bottom = 87.0
 grow_horizontal = 2
 theme_override_constants/separation = 30
+metadata/_edit_lock_ = true
 
 [node name="lanterne" type="TextureRect" parent="CharacterBody3D/Object/HBoxObject"]
 visible = false
@@ -129,6 +133,33 @@ texture = ExtResource("9_ieigg")
 visible = false
 layout_mode = 2
 texture = ExtResource("12_sik1u")
+
+[node name="IndicInteract" type="TextureRect" parent="CharacterBody3D/Object"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+texture = ExtResource("13_5ctmx")
+
+[node name="LabelInteract" type="Label" parent="CharacterBody3D/Object/IndicInteract"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -16.0
+offset_right = 62.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_5376s")
+text = "INTERACT"
 
 [node name="AreaDetectPNJ" type="Area3D" parent="CharacterBody3D"]
 
