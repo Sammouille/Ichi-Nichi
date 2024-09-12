@@ -4,9 +4,10 @@ extends CharacterBody3D
 
 var orientation_pcam : float
 
-const SPEED = 5.0
+const BASE_SPEED = 1.5
 const JUMP_VELOCITY = 4.5
 
+var vitesse = BASE_SPEED
 
 func _physics_process(delta: float) -> void:
 	
@@ -16,7 +17,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("Saut") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -24,10 +25,14 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("bouger_gauche", "bouger_droite", "bouger_avant", "bouger_arriere")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized().rotated(Vector3.UP, orientation_pcam)
 	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		velocity.x = direction.x * vitesse
+		velocity.z = direction.z * vitesse
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, vitesse)
+		velocity.z = move_toward(velocity.z, 0, vitesse)
 
 	move_and_slide()
+
+func _unhandled_input(_event: InputEvent) -> void:
+	#if event.is_action("bouger_avant") or event.is_action("bouger_arriere") or event.is_action("bouger_gauche") or event.is_action("bouger_droite"):
+		vitesse = BASE_SPEED + (Input.get_action_strength("bouger_arriere") + Input.get_action_strength("bouger_avant") + Input.get_action_strength("bouger_droite") + Input.get_action_strength("bouger_gauche")) * 3
