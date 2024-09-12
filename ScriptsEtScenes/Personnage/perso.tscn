@@ -44,11 +44,12 @@ follow_distance = 5.0
 spring_length = 5.0
 shape = SubResource("SphereShape3D_1wa7k")
 
-[node name="Node" type="Node" parent="PhantomCamera3D"]
+[node name="BrasCamera" type="Node" parent="PhantomCamera3D"]
 script = ExtResource("4_6n23y")
+min_hauteur = -1.0
+max_hauteur = 0.2
 
 [node name="CharacterBody3D" type="RigidBody3D" parent="." node_paths=PackedStringArray("pcam")]
-gravity_scale = 0.0
 script = ExtResource("1_6xcu8")
 pcam = NodePath("../PhantomCamera3D")
 

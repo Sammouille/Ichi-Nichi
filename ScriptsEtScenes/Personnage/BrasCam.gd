@@ -19,10 +19,12 @@ func _physics_process(delta: float) -> void:
 	rot = get_parent().get_third_person_rotation()
 	hauteur = rot.x
 	
-	if event.is_action_pressed("rotation_cam_haut") && rot.x > max_hauteur :
+	if event.is_action_pressed("rotation_cam_haut") && rot.x > min_hauteur :
 		rot.x -= event.get_action_strength("rotation_cam_haut") * cam_vitesse * delta
-	if event.is_action_pressed("rotation_cam_bas") && rot.x > max_hauteur :
+		print(rot.x)
+	if event.is_action_pressed("rotation_cam_bas") && rot.x < max_hauteur :
 		rot.x += event.get_action_strength("rotation_cam_bas") * cam_vitesse * delta
+		print(rot.x)
 	if event.is_action_pressed("rotation_cam_droite"):
 		rot.y += event.get_action_strength("rotation_cam_droite") * cam_vitesse * delta
 	if event.is_action_pressed("rotation_cam_gauche"):
