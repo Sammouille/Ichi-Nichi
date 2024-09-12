@@ -1,11 +1,20 @@
-[gd_scene load_steps=12 format=3 uid="uid://b1rrltdjkgbfv"]
+[gd_scene load_steps=22 format=3 uid="uid://b1rrltdjkgbfv"]
 
+[ext_resource type="Script" path="res://ScriptsEtScenes/Personnage/perso.gd" id="1_ll3eq"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_yuuvw"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_ufb3x"]
 [ext_resource type="Script" path="res://ScriptsEtScenes/Personnage/BrasCam.gd" id="4_6n23y"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/camera_3d_resource.gd" id="4_rob0g"]
 [ext_resource type="Script" path="res://ScriptsEtScenes/Personnage/PersoBodyMouvement.gd" id="5_5uk3d"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_par73"]
+[ext_resource type="Texture2D" uid="uid://b3h6ax4qyh4ee" path="res://Assets/2D/fondnoir.jpg" id="7_byc1i"]
+[ext_resource type="Theme" uid="uid://boqcbpouxoop8" path="res://Assets/FontTheme/OD_16px.tres" id="8_5376s"]
+[ext_resource type="Theme" uid="uid://dyv0gggkiltum" path="res://Assets/FontTheme/OD_24px.tres" id="8_q56jx"]
+[ext_resource type="Texture2D" uid="uid://bqt4hfv7hqmuh" path="res://Assets/2D/object/64x64/bonbon.png" id="9_ieigg"]
+[ext_resource type="Texture2D" uid="uid://cqdm8y5lcpvr4" path="res://Assets/2D/object/64x64/poupee.png" id="10_fjl37"]
+[ext_resource type="Texture2D" uid="uid://cqfe2lsjoak3g" path="res://Assets/2D/object/64x64/lanterne.png" id="11_1jhb5"]
+[ext_resource type="Texture2D" uid="uid://bi8byen4dynek" path="res://Assets/2D/object/64x64/fossile.png" id="12_sik1u"]
+[ext_resource type="Texture2D" uid="uid://ujs5jdvmkdbe" path="res://Assets/2D/Input/indication_interact_v2.png" id="13_5ctmx"]
 
 [sub_resource type="Resource" id="Resource_mup55"]
 script = ExtResource("3_ufb3x")
@@ -31,7 +40,11 @@ far = 4000.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cnkat"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_axb8s"]
+radius = 3.0
+
 [node name="Perso" type="Node3D"]
+script = ExtResource("1_ll3eq")
 
 [node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 0, -2.18557e-07)
@@ -60,8 +73,108 @@ skeleton = NodePath("../CollisionShape3D")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 shape = SubResource("CapsuleShape3D_cnkat")
 
+[node name="Dialog" type="CanvasLayer" parent="CharacterBody3D"]
+visible = false
+
+[node name="Background" type="TextureRect" parent="CharacterBody3D/Dialog"]
+self_modulate = Color(1, 1, 1, 0.313726)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 432.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_byc1i")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="LabelDialogPNJ" type="Label" parent="CharacterBody3D/Dialog/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_q56jx")
+text = "HOLA ! VOY A LA PLAYA CON EL SENOR ZORO !"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Object" type="CanvasLayer" parent="CharacterBody3D"]
+
+[node name="HBoxObject" type="HBoxContainer" parent="CharacterBody3D/Object"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 1.0
+offset_top = 23.0
+offset_right = 1.0
+offset_bottom = 87.0
+grow_horizontal = 2
+theme_override_constants/separation = 30
+metadata/_edit_lock_ = true
+
+[node name="lanterne" type="TextureRect" parent="CharacterBody3D/Object/HBoxObject"]
+visible = false
+layout_mode = 2
+texture = ExtResource("11_1jhb5")
+
+[node name="poupee" type="TextureRect" parent="CharacterBody3D/Object/HBoxObject"]
+visible = false
+layout_mode = 2
+texture = ExtResource("10_fjl37")
+
+[node name="bonbon" type="TextureRect" parent="CharacterBody3D/Object/HBoxObject"]
+visible = false
+layout_mode = 2
+texture = ExtResource("9_ieigg")
+
+[node name="fossile" type="TextureRect" parent="CharacterBody3D/Object/HBoxObject"]
+visible = false
+layout_mode = 2
+texture = ExtResource("12_sik1u")
+
+[node name="IndicInteract" type="TextureRect" parent="CharacterBody3D/Object"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+texture = ExtResource("13_5ctmx")
+
+[node name="LabelInteract" type="Label" parent="CharacterBody3D/Object/IndicInteract"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -16.0
+offset_right = 62.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_5376s")
+text = "INTERACT"
+
+[node name="AreaDetectPNJ" type="Area3D" parent="CharacterBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/AreaDetectPNJ"]
+shape = SubResource("SphereShape3D_axb8s")
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 0, -2.18557e-07)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D"]
 script = ExtResource("5_par73")
+
+[connection signal="criquet_obtained" from="CharacterBody3D" to="." method="_on_character_body_3d_criquet_obtained"]
+[connection signal="luciole_obtained" from="CharacterBody3D" to="." method="_on_character_body_3d_luciole_obtained"]
+[connection signal="scarabe_obtained" from="CharacterBody3D" to="." method="_on_character_body_3d_scarabe_obtained"]
+[connection signal="shiny_obtained" from="CharacterBody3D" to="." method="_on_character_body_3d_shiny_obtained"]
+[connection signal="area_entered" from="CharacterBody3D/AreaDetectPNJ" to="CharacterBody3D" method="_on_area_detect_pnj_area_entered"]
+[connection signal="area_exited" from="CharacterBody3D/AreaDetectPNJ" to="CharacterBody3D" method="_on_area_detect_pnj_area_exited"]

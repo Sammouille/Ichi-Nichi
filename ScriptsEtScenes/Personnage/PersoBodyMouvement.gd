@@ -2,12 +2,125 @@ extends CharacterBody3D
 
 @export var pcam : PhantomCamera3D
 
+@onready var dialog = $Dialog
+@onready var label_dialog = $Dialog/Background/LabelDialogPNJ
+
+@onready var texture_bonbon = $Object/HBoxObject/bonbon
+@onready var texture_poupee = $Object/HBoxObject/poupee
+@onready var texture_lanterne = $Object/HBoxObject/lanterne
+@onready var texture_fossile = $Object/HBoxObject/fossile
+
+@onready var indic_interact = $Object/IndicInteract
+
 var orientation_pcam : float
 
 const BASE_SPEED = 1.5
 const JUMP_VELOCITY = 4.5
 
 var vitesse = BASE_SPEED
+
+
+var pnj_in_range = null
+var collectible_in_range = null
+
+var bonbon = false
+var poupee = false
+var lanterne_cassee = false
+var lanterne = false
+var fossile = false
+
+var scarabe = false
+var luciole = false
+var criquet = false
+var shiny = false
+var chaise = true
+
+@warning_ignore("unused_signal")
+signal criquet_obtained
+@warning_ignore("unused_signal")
+signal scarabe_obtained
+@warning_ignore("unused_signal")
+signal luciole_obtained
+@warning_ignore("unused_signal")
+signal shiny_obtained
+
+@warning_ignore("unused_parameter")
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_released("Interact") and pnj_in_range != null:
+		var tmp = pnj_in_range.send_text()
+		label_dialog.text = tmp[0]
+		dialog.visible = true
+		
+		if tmp[1] == "bonbon":
+			bonbon = true
+			texture_bonbon.visible = true
+		
+		if tmp[1] == "lanterne":
+			lanterne = true
+			lanterne_cassee = false
+			texture_lanterne.modulate = Color.WHITE
+		
+		if tmp[1] == "donne_bonbon":
+			texture_bonbon.visible = false
+		
+		if tmp[1] == "donne_fossile":
+			texture_fossile.visible = false
+		
+		if tmp[1] == "donne_poupee":
+			texture_poupee.visible = false
+	
+	if Input.is_action_just_released("Interact") and collectible_in_range != null:
+		if collectible_in_range.name == "Poupee":
+			poupee = true
+			texture_poupee.visible = true
+			collectible_in_range.queue_free()
+			collectible_in_range = null
+		
+		elif collectible_in_range.name == "LanterneCassee":
+			lanterne_cassee = true
+			texture_lanterne.visible = true
+			texture_lanterne.modulate = Color.RED
+			collectible_in_range.queue_free()
+			collectible_in_range = null
+		
+		elif collectible_in_range.name == "Fossile":
+			fossile = true
+			texture_fossile.visible = true
+			collectible_in_range.queue_free()
+			collectible_in_range = null		
+		
+		
+		elif collectible_in_range.name == "Criquet":
+			criquet = true
+			emit_signal("criquet_obtained")
+			collectible_in_range.queue_free()
+			collectible_in_range = null
+		
+		elif collectible_in_range.name == "Scarabe":
+			scarabe = true
+			emit_signal("scarabe_obtained")
+			collectible_in_range.queue_free()
+			collectible_in_range = null
+		
+		elif collectible_in_range.name == "Luciole":
+			luciole = true
+			emit_signal("luciole_obtained")
+			collectible_in_range.queue_free()
+			collectible_in_range = null
+		
+		elif collectible_in_range.name == "Shiny":
+			shiny = true
+			emit_signal("shiny_obtained")
+			collectible_in_range.queue_free()
+			collectible_in_range = null
+	
+	
+	if ( Input.is_action_just_pressed("manette_retour_menu") or Input.is_action_just_pressed("Pause") ) and dialog.visible:
+		dialog.visible = false
+
+func _unhandled_input(_event: InputEvent) -> void:
+	#if event.is_action("bouger_avant") or event.is_action("bouger_arriere") or event.is_action("bouger_gauche") or event.is_action("bouger_droite"):
+		vitesse = BASE_SPEED + (Input.get_action_strength("bouger_arriere") + Input.get_action_strength("bouger_avant") + Input.get_action_strength("bouger_droite") + Input.get_action_strength("bouger_gauche")) * 3
 
 func _physics_process(delta: float) -> void:
 	
@@ -33,6 +146,24 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-func _unhandled_input(_event: InputEvent) -> void:
-	#if event.is_action("bouger_avant") or event.is_action("bouger_arriere") or event.is_action("bouger_gauche") or event.is_action("bouger_droite"):
-		vitesse = BASE_SPEED + (Input.get_action_strength("bouger_arriere") + Input.get_action_strength("bouger_avant") + Input.get_action_strength("bouger_droite") + Input.get_action_strength("bouger_gauche")) * 3
+
+
+func _on_area_detect_pnj_area_entered(area: Area3D) -> void:
+	if area.get_parent().is_in_group("PNJ"):
+		pnj_in_range = area.get_parent()
+		indic_interact.visible = true
+	
+	if area.get_parent().is_in_group("Collectible"):
+		collectible_in_range = area.get_parent()
+		indic_interact.visible = true
+
+
+func _on_area_detect_pnj_area_exited(area: Area3D) -> void:
+	if area.get_parent().is_in_group("PNJ"):
+		pnj_in_range = null
+		dialog.visible = false
+		indic_interact.visible = false
+	
+	if area.get_parent().is_in_group("Collectible"):
+		collectible_in_range = null
+		indic_interact.visible = false

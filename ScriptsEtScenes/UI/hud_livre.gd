@@ -13,13 +13,16 @@ extends CanvasLayer
 @onready var button_back = $ButtonBack
 
 
+@warning_ignore("unused_signal")
 signal hiding_livre
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	button_back.grab_focus()
+	chaise_obtained()
 
 
+@warning_ignore("unused_parameter")
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("manette_accept_ui") and self.visible:
 		#print(get_viewport().gui_get_focus_owner())
@@ -45,6 +48,7 @@ func _input(event: InputEvent) -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	pass
 

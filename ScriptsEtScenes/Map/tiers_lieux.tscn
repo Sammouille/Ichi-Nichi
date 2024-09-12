@@ -1,10 +1,22 @@
-[gd_scene load_steps=16 format=3 uid="uid://djcs313s8byon"]
+[gd_scene load_steps=38 format=3 uid="uid://djcs313s8byon"]
 
 [ext_resource type="Texture2D" uid="uid://c00irbjkt7kag" path="res://Assets/2D/TextureBlocJumpV1.jpg" id="1_12j2h"]
 [ext_resource type="Script" path="res://ScriptsEtScenes/Map/tiers_lieux.gd" id="1_o8rsa"]
 [ext_resource type="PackedScene" uid="uid://b1rrltdjkgbfv" path="res://ScriptsEtScenes/Personnage/perso.tscn" id="2_1noys"]
 [ext_resource type="PackedScene" uid="uid://cx2nngktbbklb" path="res://ScriptsEtScenes/UI/menu.tscn" id="3_q8p0b"]
 [ext_resource type="PackedScene" uid="uid://c72rg4qbq0p4o" path="res://ScriptsEtScenes/UI/hud_livre.tscn" id="5_e6vxp"]
+[ext_resource type="Texture2D" uid="uid://dy1yg8vtl1fdh" path="res://icon.svg" id="6_8tymm"]
+[ext_resource type="Script" path="res://ScriptsEtScenes/Map/maman.gd" id="7_s7jb0"]
+[ext_resource type="Script" path="res://ScriptsEtScenes/Personnage/vieux.gd" id="8_ht5q6"]
+[ext_resource type="Script" path="res://ScriptsEtScenes/Personnage/gamin.gd" id="9_c8nox"]
+[ext_resource type="Texture2D" uid="uid://dlwe6m8kik2qf" path="res://Assets/2D/object/poupee-chiffon-elise-bleu-50cm.png" id="10_nlif1"]
+[ext_resource type="Texture2D" uid="uid://bnfqlvru8t3wh" path="res://Assets/2D/object/lanterne-.png" id="11_pyiwh"]
+[ext_resource type="Script" path="res://ScriptsEtScenes/Insect-Objet/collectible.gd" id="11_stcs3"]
+[ext_resource type="Texture2D" uid="uid://c7o31x0dnxild" path="res://Assets/2D/object/fossile.png" id="12_x2mv4"]
+[ext_resource type="Texture2D" uid="uid://d37x5vpo1fq2v" path="res://Assets/2D/insect/criquet-jacasseur-848x601.png" id="13_j7xf0"]
+[ext_resource type="Texture2D" uid="uid://or8do2fnk584" path="res://Assets/2D/insect/15041.png" id="14_3v341"]
+[ext_resource type="Texture2D" uid="uid://c8t8l54h5ofpy" path="res://Assets/2D/insect/878036.png" id="15_dyfyu"]
+[ext_resource type="Texture2D" uid="uid://fc6owvov8cb8" path="res://Assets/2D/insect/ob_47559e_scarabeekabutodore.png" id="16_kxti0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xoye"]
 albedo_color = Color(0.0980392, 0.529412, 0.0627451, 1)
@@ -43,6 +55,36 @@ ambient_light_source = 2
 ambient_light_color = Color(0.972549, 1, 1, 1)
 ambient_light_energy = 0.5
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_bbfkk"]
+radius = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gjofc"]
+radius = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pb3o5"]
+radius = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qeajx"]
+radius = 5.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_w6gwi"]
+radius = 10.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cmnnh"]
+radius = 5.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sjwue"]
+radius = 10.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wuer7"]
+radius = 10.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vmkii"]
+radius = 10.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bqfv4"]
+radius = 5.0
+
 [node name="TiersLieux" type="Node3D"]
 process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -50,7 +92,7 @@ script = ExtResource("1_o8rsa")
 
 [node name="Perso" parent="." instance=ExtResource("2_1noys")]
 process_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.505, 0, -15.6893)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.7718, 0, -15.6893)
 
 [node name="GroundMesh" type="CSGCylinder3D" parent="."]
 process_mode = 1
@@ -3263,6 +3305,124 @@ visible = false
 [node name="HUDLivre" parent="." instance=ExtResource("5_e6vxp")]
 visible = false
 
+[node name="Maman" type="Sprite3D" parent="." node_paths=PackedStringArray("perso") groups=["PNJ"]]
+transform = Transform3D(-0.17425, 0, -0.984702, 0, 1, 0, 0.984702, 0, -0.17425, 57.1096, 0, -10.5893)
+modulate = Color(0.764706, 0.0941176, 0.254902, 1)
+texture = ExtResource("6_8tymm")
+script = ExtResource("7_s7jb0")
+perso = NodePath("../Perso")
+
+[node name="AreaMaman" type="Area3D" parent="Maman"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maman/AreaMaman"]
+shape = SubResource("SphereShape3D_bbfkk")
+
+[node name="Vieux" type="Sprite3D" parent="." node_paths=PackedStringArray("perso") groups=["PNJ"]]
+transform = Transform3D(-0.260403, 0, -0.9655, 0, 1, 0, 0.9655, 0, -0.260403, 47.1159, 0, -8.74164)
+modulate = Color(0, 0.639216, 1, 1)
+texture = ExtResource("6_8tymm")
+script = ExtResource("8_ht5q6")
+perso = NodePath("../Perso")
+
+[node name="AreaVieux" type="Area3D" parent="Vieux"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Vieux/AreaVieux"]
+shape = SubResource("SphereShape3D_gjofc")
+
+[node name="Gamin" type="Sprite3D" parent="." node_paths=PackedStringArray("perso") groups=["PNJ"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.5882, 0, -10.4679)
+modulate = Color(1, 0.901961, 0, 1)
+texture = ExtResource("6_8tymm")
+script = ExtResource("9_c8nox")
+perso = NodePath("../Perso")
+
+[node name="Area3D" type="Area3D" parent="Gamin"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Gamin/Area3D"]
+shape = SubResource("SphereShape3D_pb3o5")
+
+[node name="Poupee" type="Sprite3D" parent="." node_paths=PackedStringArray("perso") groups=["Collectible"]]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 67.7918, 0, -9.08607)
+texture = ExtResource("10_nlif1")
+script = ExtResource("11_stcs3")
+perso = NodePath("../Perso")
+
+[node name="Area3D" type="Area3D" parent="Poupee"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Poupee/Area3D"]
+shape = SubResource("SphereShape3D_qeajx")
+
+[node name="LanterneCassee" type="Sprite3D" parent="." node_paths=PackedStringArray("perso") groups=["Collectible"]]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 71.0351, 0, -9.08607)
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("11_pyiwh")
+script = ExtResource("11_stcs3")
+perso = NodePath("../Perso")
+
+[node name="Area3D" type="Area3D" parent="LanterneCassee"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LanterneCassee/Area3D"]
+shape = SubResource("SphereShape3D_w6gwi")
+
+[node name="Fossile" type="Sprite3D" parent="." node_paths=PackedStringArray("perso") groups=["Collectible"]]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 74.1405, 0, -9.08607)
+texture = ExtResource("12_x2mv4")
+script = ExtResource("11_stcs3")
+perso = NodePath("../Perso")
+
+[node name="Area3D" type="Area3D" parent="Fossile"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fossile/Area3D"]
+shape = SubResource("SphereShape3D_cmnnh")
+
+[node name="Criquet" type="Sprite3D" parent="." node_paths=PackedStringArray("perso") groups=["Collectible"]]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 74.1405, 0, -14.3992)
+texture = ExtResource("13_j7xf0")
+script = ExtResource("11_stcs3")
+perso = NodePath("../Perso")
+
+[node name="Area3D" type="Area3D" parent="Criquet"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Criquet/Area3D"]
+shape = SubResource("SphereShape3D_sjwue")
+
+[node name="Scarabe" type="Sprite3D" parent="." node_paths=PackedStringArray("perso") groups=["Collectible"]]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 78.1405, 0, -14.3992)
+texture = ExtResource("14_3v341")
+script = ExtResource("11_stcs3")
+perso = NodePath("../Perso")
+
+[node name="Area3D" type="Area3D" parent="Scarabe"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scarabe/Area3D"]
+shape = SubResource("SphereShape3D_wuer7")
+
+[node name="Luciole" type="Sprite3D" parent="." node_paths=PackedStringArray("perso") groups=["Collectible"]]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 82.9691, 0, -14.3992)
+texture = ExtResource("15_dyfyu")
+script = ExtResource("11_stcs3")
+perso = NodePath("../Perso")
+
+[node name="Area3D" type="Area3D" parent="Luciole"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Luciole/Area3D"]
+shape = SubResource("SphereShape3D_vmkii")
+
+[node name="Shiny" type="Sprite3D" parent="." node_paths=PackedStringArray("perso") groups=["Collectible"]]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 87.7891, 0, -14.3992)
+texture = ExtResource("16_kxti0")
+script = ExtResource("11_stcs3")
+perso = NodePath("../Perso")
+
+[node name="Area3D" type="Area3D" parent="Shiny"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Shiny/Area3D"]
+shape = SubResource("SphereShape3D_bqfv4")
+
+[connection signal="criquet_obtained" from="Perso" to="HUDLivre" method="criquet_obtained"]
+[connection signal="luciole_obtained" from="Perso" to="HUDLivre" method="luciole_obtained"]
+[connection signal="scarabe_obtained" from="Perso" to="HUDLivre" method="scarabe_obtained"]
+[connection signal="shiny_obtained" from="Perso" to="HUDLivre" method="shiny_obtained"]
 [connection signal="show_book" from="Menu" to="." method="_on_menu_show_book"]
 [connection signal="hiding_livre" from="HUDLivre" to="." method="_on_hud_livre_hiding_livre"]
 [connection signal="hiding_livre" from="HUDLivre" to="Menu" method="_on_hud_livre_hiding_livre"]

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8t8l54h5ofpy"
-path.s3tc="res://.godot/imported/878036.png-46144f9802cc9ee55f6215c32a8620fa.s3tc.ctex"
+uid="uid://c7o31x0dnxild"
+path.s3tc="res://.godot/imported/fossile.png-edf0bc4bb3454b098d41aa0b95a249ef.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/2D/insect/878036.png"
-dest_files=["res://.godot/imported/878036.png-46144f9802cc9ee55f6215c32a8620fa.s3tc.ctex"]
+source_file="res://Assets/2D/object/fossile.png"
+dest_files=["res://.godot/imported/fossile.png-edf0bc4bb3454b098d41aa0b95a249ef.s3tc.ctex"]
 
 [params]
 
