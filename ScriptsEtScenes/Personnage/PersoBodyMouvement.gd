@@ -59,7 +59,6 @@ func _input(event: InputEvent) -> void:
 			texture_lanterne.modulate = Color.WHITE
 		
 		if tmp[1] == "donne_bonbon":
-			print("dfs")
 			texture_bonbon.visible = false
 		
 		if tmp[1] == "donne_fossile":
@@ -162,5 +161,3 @@ func _on_area_detect_pnj_area_exited(area: Area3D) -> void:
 	
 	if area.get_parent().is_in_group("Collectible"):
 		collectible_in_range = null
-
-

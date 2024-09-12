@@ -14,6 +14,7 @@ extends CanvasLayer
 
 var book_show = false
 
+@warning_ignore("unused_signal")
 signal show_book
 
 # Called when the node enters the scene tree for the first time.
@@ -26,6 +27,7 @@ func _ready() -> void:
 		button_option.focus_neighbor_top = button_livre.get_path()
 
 
+@warning_ignore("unused_parameter")
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Pause") and get_tree().current_scene.name == "Menu" :
 		esc_hide()
@@ -46,6 +48,7 @@ func _input(event: InputEvent) -> void:
 			button_credits.grab_focus()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	pass
 

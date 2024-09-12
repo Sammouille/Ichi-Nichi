@@ -16,6 +16,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+@warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
 	self.look_at(player.global_position)
 
