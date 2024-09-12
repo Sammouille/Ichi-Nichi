@@ -21,6 +21,14 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("manette_accept_ui") and self.visible:
+		#print(get_viewport().gui_get_focus_owner())
+		get_viewport().gui_get_focus_owner().emit_signal("pressed")
+	
+	if Input.is_action_just_pressed("manette_retour_menu") and self.visible:
+		self.visible = false
+		emit_signal("hiding_livre")
+	
 	#if Input.is_action_just_pressed("ui_left"):
 		#if !criquet.visible :
 			#criquet_obtained()

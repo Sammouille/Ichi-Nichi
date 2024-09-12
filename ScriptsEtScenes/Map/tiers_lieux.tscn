@@ -1009,6 +1009,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.62467, -0.5, 3.79476)
 use_collision = true
 size = Vector3(2.5, 1, 2)
 
+[node name="Pont" type="Node3D" parent="Village"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Village/Pont"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.5025, 1, 0)
+use_collision = true
+size = Vector3(5, 1, 10)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Village/Pont/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, -1.35134, -8.60271)
+size = Vector3(5, 1, 8.02631)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Village/Pont/CSGBox3D"]
+transform = Transform3D(-1, 2.99003e-08, -8.21505e-08, 0, 0.939693, 0.34202, 8.74228e-08, 0.34202, -0.939693, 0, -1.35134, 8.59438)
+size = Vector3(5, 1, 8.02631)
+
 [node name="Riviere" type="Node3D" parent="."]
 process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -3249,4 +3264,5 @@ visible = false
 visible = false
 
 [connection signal="show_book" from="Menu" to="." method="_on_menu_show_book"]
+[connection signal="hiding_livre" from="HUDLivre" to="." method="_on_hud_livre_hiding_livre"]
 [connection signal="hiding_livre" from="HUDLivre" to="Menu" method="_on_hud_livre_hiding_livre"]

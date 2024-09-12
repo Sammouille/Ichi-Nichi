@@ -19,6 +19,17 @@ func _ready() -> void:
 		button_quit.visible = false
 
 
+func _input(event: InputEvent) -> void:
+	if self.visible and Input.is_action_just_pressed("manette_retour_menu"):
+		
+		if showinput.visible:
+			vboxoptions.visible = true
+			showinput.visible = false
+			button_controls.grab_focus()
+		else:
+			self.visible = false
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
