@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bv0s84a12blhl" path="res://Assets/2D/Input/controler_logo_input.png" id="4_s3vb7"]
 
 [node name="Options" type="CanvasLayer"]
+process_mode = 3
 layer = 2
 script = ExtResource("1_8eq7t")
 
@@ -32,6 +33,8 @@ alignment = 1
 [node name="ButtonControls" type="Button" parent="VBoxOptions"]
 layout_mode = 2
 size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../VBoxButton/ButtonQuit")
+focus_neighbor_bottom = NodePath("../VBoxWindow/HBoxContainer/ButtonFullscreen")
 text = "Controls"
 
 [node name="VBoxWindow" type="VBoxContainer" parent="VBoxOptions"]
@@ -51,10 +54,18 @@ alignment = 1
 
 [node name="ButtonFullscreen" type="Button" parent="VBoxOptions/VBoxWindow/HBoxContainer"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../ButtonWindowed")
+focus_neighbor_top = NodePath("../../../ButtonControls")
+focus_neighbor_right = NodePath("../ButtonWindowed")
+focus_neighbor_bottom = NodePath("../../../VBoxButton/ButtonBack")
 text = "Fullscreen"
 
 [node name="ButtonWindowed" type="Button" parent="VBoxOptions/VBoxWindow/HBoxContainer"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../ButtonFullscreen")
+focus_neighbor_top = NodePath("../../../ButtonControls")
+focus_neighbor_right = NodePath("../ButtonFullscreen")
+focus_neighbor_bottom = NodePath("../../../VBoxButton/ButtonBack")
 text = "Windowed"
 
 [node name="VBoxButton" type="VBoxContainer" parent="VBoxOptions"]
@@ -67,12 +78,16 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_neighbor_top = NodePath("../../VBoxWindow/HBoxContainer/ButtonFullscreen")
+focus_neighbor_bottom = NodePath("../ButtonQuit")
 text = "Back"
 
 [node name="ButtonQuit" type="Button" parent="VBoxOptions/VBoxButton"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_neighbor_top = NodePath("../ButtonBack")
+focus_neighbor_bottom = NodePath("../../ButtonControls")
 text = "Quit"
 
 [node name="ShowInput" type="Control" parent="."]
@@ -98,6 +113,7 @@ texture = ExtResource("4_g5qcj")
 metadata/_edit_lock_ = true
 
 [node name="LabelDeplacement" type="Label" parent="ShowInput/KeyboardInput"]
+layout_mode = 0
 offset_left = 18.0
 offset_top = 306.0
 offset_right = 243.0
@@ -105,6 +121,7 @@ offset_bottom = 351.0
 text = "Déplacements"
 
 [node name="LabelStart" type="Label" parent="ShowInput/KeyboardInput"]
+layout_mode = 0
 offset_left = 362.0
 offset_top = 77.0
 offset_right = 587.0
@@ -113,6 +130,7 @@ text = "Start"
 horizontal_alignment = 1
 
 [node name="LabelBugdex" type="Label" parent="ShowInput/KeyboardInput"]
+layout_mode = 0
 offset_left = 647.0
 offset_top = 74.0
 offset_right = 872.0
@@ -121,6 +139,7 @@ text = "Livre"
 horizontal_alignment = 1
 
 [node name="LabelInteragir" type="Label" parent="ShowInput/KeyboardInput"]
+layout_mode = 0
 offset_left = 789.0
 offset_top = 368.0
 offset_right = 1014.0
@@ -130,6 +149,7 @@ text = "Intéragir
 horizontal_alignment = 1
 
 [node name="LabelSauter" type="Label" parent="ShowInput/KeyboardInput"]
+layout_mode = 0
 offset_left = 585.0
 offset_top = 507.0
 offset_right = 810.0
@@ -138,6 +158,7 @@ text = "Sauter"
 horizontal_alignment = 1
 
 [node name="LabelCamera" type="Label" parent="ShowInput/KeyboardInput"]
+layout_mode = 0
 offset_left = 863.0
 offset_top = 161.0
 offset_right = 1088.0
@@ -228,16 +249,23 @@ theme_override_constants/separation = 20
 
 [node name="ButtonController" type="Button" parent="ShowInput/VBoxButtonInput"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../ButtonBackControl")
+focus_neighbor_bottom = NodePath("../ButtonKeyboard")
 text = "Manette"
 
 [node name="ButtonKeyboard" type="Button" parent="ShowInput/VBoxButtonInput"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../ButtonController")
+focus_neighbor_bottom = NodePath("../ButtonBackControl")
 text = "Clavier"
 
 [node name="ButtonBackControl" type="Button" parent="ShowInput/VBoxButtonInput"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../ButtonKeyboard")
+focus_neighbor_bottom = NodePath("../ButtonController")
 text = "Back"
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="VBoxOptions/ButtonControls" to="." method="_on_button_controls_pressed"]
 [connection signal="pressed" from="VBoxOptions/VBoxWindow/HBoxContainer/ButtonFullscreen" to="." method="_on_button_fullscreen_pressed"]
 [connection signal="pressed" from="VBoxOptions/VBoxWindow/HBoxContainer/ButtonWindowed" to="." method="_on_button_windowed_pressed"]

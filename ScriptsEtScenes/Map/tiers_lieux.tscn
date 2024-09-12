@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://djcs313s8byon"]
+[gd_scene load_steps=16 format=3 uid="uid://djcs313s8byon"]
 
 [ext_resource type="Texture2D" uid="uid://c00irbjkt7kag" path="res://Assets/2D/TextureBlocJumpV1.jpg" id="1_12j2h"]
 [ext_resource type="Script" path="res://ScriptsEtScenes/Map/tiers_lieux.gd" id="1_o8rsa"]
@@ -12,18 +12,6 @@ albedo_texture = ExtResource("1_12j2h")
 uv1_triplanar = true
 uv1_triplanar_sharpness = 57.68
 
-[sub_resource type="BoxMesh" id="BoxMesh_trfu1"]
-size = Vector3(10, 4, 10)
-
-[sub_resource type="BoxMesh" id="BoxMesh_trtae"]
-size = Vector3(9, 3.8, 9)
-
-[sub_resource type="BoxMesh" id="BoxMesh_4u5tf"]
-size = Vector3(2, 2.5, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_a5k5j"]
-size = Vector3(1, 2, 2)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cp6eg"]
 albedo_color = Color(0.113725, 0.447059, 1, 1)
 
@@ -35,15 +23,6 @@ size = Vector3(49, 19, 49)
 
 [sub_resource type="BoxMesh" id="BoxMesh_dvi3y"]
 size = Vector3(13, 13, 4)
-
-[sub_resource type="BoxMesh" id="BoxMesh_tdvo5"]
-size = Vector3(30, 9, 20)
-
-[sub_resource type="BoxMesh" id="BoxMesh_fsmeh"]
-size = Vector3(29, 8, 19)
-
-[sub_resource type="BoxMesh" id="BoxMesh_uiy7j"]
-size = Vector3(5, 5, 8)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5qv88"]
 albedo_color = Color(0.788235, 0.286275, 0.176471, 1)
@@ -65,12 +44,16 @@ ambient_light_color = Color(0.972549, 1, 1, 1)
 ambient_light_energy = 0.5
 
 [node name="TiersLieux" type="Node3D"]
+process_mode = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_o8rsa")
 
 [node name="Perso" parent="." instance=ExtResource("2_1noys")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.4451, 0, -15.6893)
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.505, 0, -15.6893)
 
 [node name="GroundMesh" type="CSGCylinder3D" parent="."]
+process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 use_collision = true
 radius = 100.0
@@ -168,79 +151,881 @@ size = Vector3(80, 2, 12)
 metadata/_edit_lock_ = true
 
 [node name="Village" type="Node3D" parent="."]
+process_mode = 1
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="Village"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85, 1, -20)
-mesh = SubResource("BoxMesh_trfu1")
-metadata/_edit_lock_ = true
+[node name="MaisonProta" type="Node3D" parent="Village"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.443, 0, -25)
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Village"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 1, -20)
-mesh = SubResource("BoxMesh_trfu1")
-metadata/_edit_lock_ = true
+[node name="CSGBox3D" type="CSGBox3D" parent="Village/MaisonProta"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.709587, 1, -3.606)
+use_collision = true
+size = Vector3(11.9732, 4, 1)
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Village"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55, 1, -20)
-mesh = SubResource("BoxMesh_trfu1")
-metadata/_edit_lock_ = true
-
-[node name="MaisonProta" type="CSGMesh3D" parent="Village"]
-transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, 38.093, 1, -18)
-mesh = SubResource("BoxMesh_trfu1")
-metadata/_edit_lock_ = true
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="Village/MaisonProta"]
-transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, -0.1, 0)
+[node name="Fenetre4" type="CSGBox3D" parent="Village/MaisonProta/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.56821, 0, 0.0552406)
 operation = 2
-mesh = SubResource("BoxMesh_trtae")
-metadata/_edit_lock_ = true
+size = Vector3(2, 1.5, 2)
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Village/MaisonProta"]
-transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 2.82721, -0.75, 4.59221)
+[node name="Fenetre5" type="CSGBox3D" parent="Village/MaisonProta/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.61783, 0, 0.0552406)
 operation = 2
-mesh = SubResource("BoxMesh_4u5tf")
-metadata/_edit_lock_ = true
+size = Vector3(2, 1.5, 2)
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Village/MaisonProta"]
-transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -4.89335, 0.350707, 2.16385)
+[node name="CSGBox3D8" type="CSGBox3D" parent="Village/MaisonProta"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.11592, 1, 1.51783)
+use_collision = true
+size = Vector3(11.2332, 4, 1)
+
+[node name="Fenetre3" type="CSGBox3D" parent="Village/MaisonProta/CSGBox3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.92611, 0, 0.177683)
 operation = 2
-mesh = SubResource("BoxMesh_a5k5j")
-metadata/_edit_lock_ = true
+size = Vector3(4, 1.5, 2)
 
-[node name="CSGMesh3D4" type="CSGMesh3D" parent="Village/MaisonProta"]
-transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -4.81168, 0.350707, -2.20021)
+[node name="Fenetre4" type="CSGBox3D" parent="Village/MaisonProta/CSGBox3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.43171, 0, 0.177683)
 operation = 2
-mesh = SubResource("BoxMesh_a5k5j")
-metadata/_edit_lock_ = true
+size = Vector3(4, 1.5, 2)
 
-[node name="CSGMesh3D5" type="CSGMesh3D" parent="Village/MaisonProta"]
-transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 4.8126, 0.350707, -2.09109)
+[node name="CSGBox3D2" type="CSGBox3D" parent="Village/MaisonProta"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.74955, 1, -1.26166)
+use_collision = true
+size = Vector3(5.71118, 4, 1)
+
+[node name="Fenetre3" type="CSGBox3D" parent="Village/MaisonProta/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.660282, 0, 0.00619125)
 operation = 2
-mesh = SubResource("BoxMesh_a5k5j")
-metadata/_edit_lock_ = true
+size = Vector3(2, 1.5, 2)
 
-[node name="CSGMesh3D6" type="CSGMesh3D" parent="Village/MaisonProta"]
-transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 4.91095, 0.350707, 2.97183)
+[node name="CSGBox3D3" type="CSGBox3D" parent="Village/MaisonProta"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.31741, 1, 2.00278)
+use_collision = true
+size = Vector3(5.88367, 4, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Village/MaisonProta"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0548992, 1, -0.299685)
+use_collision = true
+size = Vector3(5.60571, 4, 1)
+
+[node name="Porte3" type="CSGBox3D" parent="Village/MaisonProta/CSGBox3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.547083, -0.993593, 0.116194)
 operation = 2
-mesh = SubResource("BoxMesh_a5k5j")
-metadata/_edit_lock_ = true
+size = Vector3(1.5, 2, 2)
 
-[node name="CSGMesh3D4" type="CSGMesh3D" parent="Village"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85, 1, 20)
-mesh = SubResource("BoxMesh_trfu1")
-metadata/_edit_lock_ = true
+[node name="CSGBox3D5" type="CSGBox3D" parent="Village/MaisonProta"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.74955, 1, 4.45266)
+use_collision = true
+size = Vector3(3.93448, 4, 1)
 
-[node name="CSGMesh3D5" type="CSGMesh3D" parent="Village"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 1, 20)
-mesh = SubResource("BoxMesh_trfu1")
-metadata/_edit_lock_ = true
+[node name="Fenetre2" type="CSGBox3D" parent="Village/MaisonProta/CSGBox3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.386774, 0, 0.00619221)
+operation = 2
+size = Vector3(2, 1.5, 2)
 
-[node name="CSGMesh3D6" type="CSGMesh3D" parent="Village"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55, 1, 20)
-mesh = SubResource("BoxMesh_trfu1")
-metadata/_edit_lock_ = true
+[node name="CSGBox3D6" type="CSGBox3D" parent="Village/MaisonProta"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30911, 1, 6.64655)
+use_collision = true
+size = Vector3(5.90027, 4, 1)
+
+[node name="Fenetre" type="CSGBox3D" parent="Village/MaisonProta/CSGBox3D6"]
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Village/MaisonProta"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.59283, 1, 6.64228)
+use_collision = true
+size = Vector3(6.04922, 4, 1)
+
+[node name="Porte" type="CSGBox3D" parent="Village/MaisonProta/CSGBox3D9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.993593, 0)
+operation = 2
+size = Vector3(1.5, 2, 2)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Village/MaisonProta"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0892429, 1, 4.80705)
+use_collision = true
+size = Vector3(4.67424, 4, 1)
+
+[node name="Porte2" type="CSGBox3D" parent="Village/MaisonProta/CSGBox3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0128908, -0.993593, 0.116194)
+operation = 2
+size = Vector3(1.5, 2, 2)
+
+[node name="lit" type="CSGBox3D" parent="Village/MaisonProta"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.60741, -0.5, -1.94076)
+use_collision = true
+size = Vector3(2.5, 1, 2)
+
+[node name="lit2" type="CSGBox3D" parent="Village/MaisonProta"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.62467, -0.5, 3.79476)
+use_collision = true
+size = Vector3(2.5, 1, 2)
+
+[node name="Maison2" type="Node3D" parent="Village"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.488, 0, -25)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Village/Maison2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.709587, 1, -3.606)
+use_collision = true
+size = Vector3(11.9732, 4, 1)
+
+[node name="Fenetre4" type="CSGBox3D" parent="Village/Maison2/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.56821, 0, 0.0552406)
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="Fenetre5" type="CSGBox3D" parent="Village/Maison2/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.61783, 0, 0.0552406)
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Village/Maison2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.11592, 1, 1.51783)
+use_collision = true
+size = Vector3(11.2332, 4, 1)
+
+[node name="Fenetre3" type="CSGBox3D" parent="Village/Maison2/CSGBox3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.92611, 0, 0.177683)
+operation = 2
+size = Vector3(4, 1.5, 2)
+
+[node name="Fenetre4" type="CSGBox3D" parent="Village/Maison2/CSGBox3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.43171, 0, 0.177683)
+operation = 2
+size = Vector3(4, 1.5, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Village/Maison2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.74955, 1, -1.26166)
+use_collision = true
+size = Vector3(5.71118, 4, 1)
+
+[node name="Fenetre3" type="CSGBox3D" parent="Village/Maison2/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.660282, 0, 0.00619125)
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Village/Maison2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.31741, 1, 2.00278)
+use_collision = true
+size = Vector3(5.88367, 4, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Village/Maison2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0548992, 1, -0.299685)
+use_collision = true
+size = Vector3(5.60571, 4, 1)
+
+[node name="Porte3" type="CSGBox3D" parent="Village/Maison2/CSGBox3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.547083, -0.993593, 0.116194)
+operation = 2
+size = Vector3(1.5, 2, 2)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Village/Maison2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.74955, 1, 4.45266)
+use_collision = true
+size = Vector3(3.93448, 4, 1)
+
+[node name="Fenetre2" type="CSGBox3D" parent="Village/Maison2/CSGBox3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.386774, 0, 0.00619221)
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Village/Maison2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30911, 1, 6.64655)
+use_collision = true
+size = Vector3(5.90027, 4, 1)
+
+[node name="Fenetre" type="CSGBox3D" parent="Village/Maison2/CSGBox3D6"]
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Village/Maison2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.59283, 1, 6.64228)
+use_collision = true
+size = Vector3(6.04922, 4, 1)
+
+[node name="Porte" type="CSGBox3D" parent="Village/Maison2/CSGBox3D9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.993593, 0)
+operation = 2
+size = Vector3(1.5, 2, 2)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Village/Maison2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0892429, 1, 4.80705)
+use_collision = true
+size = Vector3(4.67424, 4, 1)
+
+[node name="Porte2" type="CSGBox3D" parent="Village/Maison2/CSGBox3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0128908, -0.993593, 0.116194)
+operation = 2
+size = Vector3(1.5, 2, 2)
+
+[node name="lit" type="CSGBox3D" parent="Village/Maison2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.60741, -0.5, -1.94076)
+use_collision = true
+size = Vector3(2.5, 1, 2)
+
+[node name="lit2" type="CSGBox3D" parent="Village/Maison2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.62467, -0.5, 3.79476)
+use_collision = true
+size = Vector3(2.5, 1, 2)
+
+[node name="Maison3" type="Node3D" parent="Village"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.488, 0, -40)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Village/Maison3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.709587, 1, -3.606)
+use_collision = true
+size = Vector3(11.9732, 4, 1)
+
+[node name="Fenetre4" type="CSGBox3D" parent="Village/Maison3/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.56821, 0, 0.0552406)
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="Fenetre5" type="CSGBox3D" parent="Village/Maison3/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.61783, 0, 0.0552406)
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Village/Maison3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.11592, 1, 1.51783)
+use_collision = true
+size = Vector3(11.2332, 4, 1)
+
+[node name="Fenetre3" type="CSGBox3D" parent="Village/Maison3/CSGBox3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.92611, 0, 0.177683)
+operation = 2
+size = Vector3(4, 1.5, 2)
+
+[node name="Fenetre4" type="CSGBox3D" parent="Village/Maison3/CSGBox3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.43171, 0, 0.177683)
+operation = 2
+size = Vector3(4, 1.5, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Village/Maison3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.74955, 1, -1.26166)
+use_collision = true
+size = Vector3(5.71118, 4, 1)
+
+[node name="Fenetre3" type="CSGBox3D" parent="Village/Maison3/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.660282, 0, 0.00619125)
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Village/Maison3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.31741, 1, 2.00278)
+use_collision = true
+size = Vector3(5.88367, 4, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Village/Maison3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0548992, 1, -0.299685)
+use_collision = true
+size = Vector3(5.60571, 4, 1)
+
+[node name="Porte3" type="CSGBox3D" parent="Village/Maison3/CSGBox3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.547083, -0.993593, 0.116194)
+operation = 2
+size = Vector3(1.5, 2, 2)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Village/Maison3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.74955, 1, 4.45266)
+use_collision = true
+size = Vector3(3.93448, 4, 1)
+
+[node name="Fenetre2" type="CSGBox3D" parent="Village/Maison3/CSGBox3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.386774, 0, 0.00619221)
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Village/Maison3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30911, 1, 6.64655)
+use_collision = true
+size = Vector3(5.90027, 4, 1)
+
+[node name="Fenetre" type="CSGBox3D" parent="Village/Maison3/CSGBox3D6"]
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Village/Maison3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.59283, 1, 6.64228)
+use_collision = true
+size = Vector3(6.04922, 4, 1)
+
+[node name="Porte" type="CSGBox3D" parent="Village/Maison3/CSGBox3D9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.993593, 0)
+operation = 2
+size = Vector3(1.5, 2, 2)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Village/Maison3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0892429, 1, 4.80705)
+use_collision = true
+size = Vector3(4.67424, 4, 1)
+
+[node name="Porte2" type="CSGBox3D" parent="Village/Maison3/CSGBox3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0128908, -0.993593, 0.116194)
+operation = 2
+size = Vector3(1.5, 2, 2)
+
+[node name="lit" type="CSGBox3D" parent="Village/Maison3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.60741, -0.5, -1.94076)
+use_collision = true
+size = Vector3(2.5, 1, 2)
+
+[node name="lit2" type="CSGBox3D" parent="Village/Maison3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.62467, -0.5, 3.79476)
+use_collision = true
+size = Vector3(2.5, 1, 2)
+
+[node name="Maison4" type="Node3D" parent="Village"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.634, 0, -40)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Village/Maison4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.709587, 1, -3.606)
+use_collision = true
+size = Vector3(11.9732, 4, 1)
+
+[node name="Fenetre4" type="CSGBox3D" parent="Village/Maison4/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.56821, 0, 0.0552406)
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="Fenetre5" type="CSGBox3D" parent="Village/Maison4/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.61783, 0, 0.0552406)
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Village/Maison4"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.11592, 1, 1.51783)
+use_collision = true
+size = Vector3(11.2332, 4, 1)
+
+[node name="Fenetre3" type="CSGBox3D" parent="Village/Maison4/CSGBox3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.92611, 0, 0.177683)
+operation = 2
+size = Vector3(4, 1.5, 2)
+
+[node name="Fenetre4" type="CSGBox3D" parent="Village/Maison4/CSGBox3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.43171, 0, 0.177683)
+operation = 2
+size = Vector3(4, 1.5, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Village/Maison4"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.74955, 1, -1.26166)
+use_collision = true
+size = Vector3(5.71118, 4, 1)
+
+[node name="Fenetre3" type="CSGBox3D" parent="Village/Maison4/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.660282, 0, 0.00619125)
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Village/Maison4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.31741, 1, 2.00278)
+use_collision = true
+size = Vector3(5.88367, 4, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Village/Maison4"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0548992, 1, -0.299685)
+use_collision = true
+size = Vector3(5.60571, 4, 1)
+
+[node name="Porte3" type="CSGBox3D" parent="Village/Maison4/CSGBox3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.547083, -0.993593, 0.116194)
+operation = 2
+size = Vector3(1.5, 2, 2)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Village/Maison4"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.74955, 1, 4.45266)
+use_collision = true
+size = Vector3(3.93448, 4, 1)
+
+[node name="Fenetre2" type="CSGBox3D" parent="Village/Maison4/CSGBox3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.386774, 0, 0.00619221)
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Village/Maison4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30911, 1, 6.64655)
+use_collision = true
+size = Vector3(5.90027, 4, 1)
+
+[node name="Fenetre" type="CSGBox3D" parent="Village/Maison4/CSGBox3D6"]
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Village/Maison4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.59283, 1, 6.64228)
+use_collision = true
+size = Vector3(6.04922, 4, 1)
+
+[node name="Porte" type="CSGBox3D" parent="Village/Maison4/CSGBox3D9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.993593, 0)
+operation = 2
+size = Vector3(1.5, 2, 2)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Village/Maison4"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0892429, 1, 4.80705)
+use_collision = true
+size = Vector3(4.67424, 4, 1)
+
+[node name="Porte2" type="CSGBox3D" parent="Village/Maison4/CSGBox3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0128908, -0.993593, 0.116194)
+operation = 2
+size = Vector3(1.5, 2, 2)
+
+[node name="lit" type="CSGBox3D" parent="Village/Maison4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.60741, -0.5, -1.94076)
+use_collision = true
+size = Vector3(2.5, 1, 2)
+
+[node name="lit2" type="CSGBox3D" parent="Village/Maison4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.62467, -0.5, 3.79476)
+use_collision = true
+size = Vector3(2.5, 1, 2)
+
+[node name="Maison5" type="Node3D" parent="Village"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.443, 0, 35)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Village/Maison5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.709587, 1, -3.606)
+use_collision = true
+size = Vector3(11.9732, 4, 1)
+
+[node name="Fenetre4" type="CSGBox3D" parent="Village/Maison5/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.56821, 0, 0.0552406)
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="Fenetre5" type="CSGBox3D" parent="Village/Maison5/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.61783, 0, 0.0552406)
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Village/Maison5"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.11592, 1, 1.51783)
+use_collision = true
+size = Vector3(11.2332, 4, 1)
+
+[node name="Fenetre3" type="CSGBox3D" parent="Village/Maison5/CSGBox3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.92611, 0, 0.177683)
+operation = 2
+size = Vector3(4, 1.5, 2)
+
+[node name="Fenetre4" type="CSGBox3D" parent="Village/Maison5/CSGBox3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.43171, 0, 0.177683)
+operation = 2
+size = Vector3(4, 1.5, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Village/Maison5"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.74955, 1, -1.26166)
+use_collision = true
+size = Vector3(5.71118, 4, 1)
+
+[node name="Fenetre3" type="CSGBox3D" parent="Village/Maison5/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.660282, 0, 0.00619125)
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Village/Maison5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.31741, 1, 2.00278)
+use_collision = true
+size = Vector3(5.88367, 4, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Village/Maison5"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0548992, 1, -0.299685)
+use_collision = true
+size = Vector3(5.60571, 4, 1)
+
+[node name="Porte3" type="CSGBox3D" parent="Village/Maison5/CSGBox3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.547083, -0.993593, 0.116194)
+operation = 2
+size = Vector3(1.5, 2, 2)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Village/Maison5"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.74955, 1, 4.45266)
+use_collision = true
+size = Vector3(3.93448, 4, 1)
+
+[node name="Fenetre2" type="CSGBox3D" parent="Village/Maison5/CSGBox3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.386774, 0, 0.00619221)
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Village/Maison5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30911, 1, 6.64655)
+use_collision = true
+size = Vector3(5.90027, 4, 1)
+
+[node name="Fenetre" type="CSGBox3D" parent="Village/Maison5/CSGBox3D6"]
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Village/Maison5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.59283, 1, 6.64228)
+use_collision = true
+size = Vector3(6.04922, 4, 1)
+
+[node name="Porte" type="CSGBox3D" parent="Village/Maison5/CSGBox3D9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.993593, 0)
+operation = 2
+size = Vector3(1.5, 2, 2)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Village/Maison5"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0892429, 1, 4.80705)
+use_collision = true
+size = Vector3(4.67424, 4, 1)
+
+[node name="Porte2" type="CSGBox3D" parent="Village/Maison5/CSGBox3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0128908, -0.993593, 0.116194)
+operation = 2
+size = Vector3(1.5, 2, 2)
+
+[node name="lit" type="CSGBox3D" parent="Village/Maison5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.60741, -0.5, -1.94076)
+use_collision = true
+size = Vector3(2.5, 1, 2)
+
+[node name="lit2" type="CSGBox3D" parent="Village/Maison5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.62467, -0.5, 3.79476)
+use_collision = true
+size = Vector3(2.5, 1, 2)
+
+[node name="Maison6" type="Node3D" parent="Village"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.488, 0, 35)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Village/Maison6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.709587, 1, -3.606)
+use_collision = true
+size = Vector3(11.9732, 4, 1)
+
+[node name="Fenetre4" type="CSGBox3D" parent="Village/Maison6/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.56821, 0, 0.0552406)
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="Fenetre5" type="CSGBox3D" parent="Village/Maison6/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.61783, 0, 0.0552406)
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Village/Maison6"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.11592, 1, 1.51783)
+use_collision = true
+size = Vector3(11.2332, 4, 1)
+
+[node name="Fenetre3" type="CSGBox3D" parent="Village/Maison6/CSGBox3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.92611, 0, 0.177683)
+operation = 2
+size = Vector3(4, 1.5, 2)
+
+[node name="Fenetre4" type="CSGBox3D" parent="Village/Maison6/CSGBox3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.43171, 0, 0.177683)
+operation = 2
+size = Vector3(4, 1.5, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Village/Maison6"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.74955, 1, -1.26166)
+use_collision = true
+size = Vector3(5.71118, 4, 1)
+
+[node name="Fenetre3" type="CSGBox3D" parent="Village/Maison6/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.660282, 0, 0.00619125)
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Village/Maison6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.31741, 1, 2.00278)
+use_collision = true
+size = Vector3(5.88367, 4, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Village/Maison6"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0548992, 1, -0.299685)
+use_collision = true
+size = Vector3(5.60571, 4, 1)
+
+[node name="Porte3" type="CSGBox3D" parent="Village/Maison6/CSGBox3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.547083, -0.993593, 0.116194)
+operation = 2
+size = Vector3(1.5, 2, 2)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Village/Maison6"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.74955, 1, 4.45266)
+use_collision = true
+size = Vector3(3.93448, 4, 1)
+
+[node name="Fenetre2" type="CSGBox3D" parent="Village/Maison6/CSGBox3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.386774, 0, 0.00619221)
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Village/Maison6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30911, 1, 6.64655)
+use_collision = true
+size = Vector3(5.90027, 4, 1)
+
+[node name="Fenetre" type="CSGBox3D" parent="Village/Maison6/CSGBox3D6"]
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Village/Maison6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.59283, 1, 6.64228)
+use_collision = true
+size = Vector3(6.04922, 4, 1)
+
+[node name="Porte" type="CSGBox3D" parent="Village/Maison6/CSGBox3D9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.993593, 0)
+operation = 2
+size = Vector3(1.5, 2, 2)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Village/Maison6"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0892429, 1, 4.80705)
+use_collision = true
+size = Vector3(4.67424, 4, 1)
+
+[node name="Porte2" type="CSGBox3D" parent="Village/Maison6/CSGBox3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0128908, -0.993593, 0.116194)
+operation = 2
+size = Vector3(1.5, 2, 2)
+
+[node name="lit" type="CSGBox3D" parent="Village/Maison6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.60741, -0.5, -1.94076)
+use_collision = true
+size = Vector3(2.5, 1, 2)
+
+[node name="lit2" type="CSGBox3D" parent="Village/Maison6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.62467, -0.5, 3.79476)
+use_collision = true
+size = Vector3(2.5, 1, 2)
+
+[node name="Maison7" type="Node3D" parent="Village"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.488, 0, 20)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Village/Maison7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.709587, 1, -3.606)
+use_collision = true
+size = Vector3(11.9732, 4, 1)
+
+[node name="Fenetre4" type="CSGBox3D" parent="Village/Maison7/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.56821, 0, 0.0552406)
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="Fenetre5" type="CSGBox3D" parent="Village/Maison7/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.61783, 0, 0.0552406)
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Village/Maison7"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.11592, 1, 1.51783)
+use_collision = true
+size = Vector3(11.2332, 4, 1)
+
+[node name="Fenetre3" type="CSGBox3D" parent="Village/Maison7/CSGBox3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.92611, 0, 0.177683)
+operation = 2
+size = Vector3(4, 1.5, 2)
+
+[node name="Fenetre4" type="CSGBox3D" parent="Village/Maison7/CSGBox3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.43171, 0, 0.177683)
+operation = 2
+size = Vector3(4, 1.5, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Village/Maison7"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.74955, 1, -1.26166)
+use_collision = true
+size = Vector3(5.71118, 4, 1)
+
+[node name="Fenetre3" type="CSGBox3D" parent="Village/Maison7/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.660282, 0, 0.00619125)
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Village/Maison7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.31741, 1, 2.00278)
+use_collision = true
+size = Vector3(5.88367, 4, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Village/Maison7"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0548992, 1, -0.299685)
+use_collision = true
+size = Vector3(5.60571, 4, 1)
+
+[node name="Porte3" type="CSGBox3D" parent="Village/Maison7/CSGBox3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.547083, -0.993593, 0.116194)
+operation = 2
+size = Vector3(1.5, 2, 2)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Village/Maison7"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.74955, 1, 4.45266)
+use_collision = true
+size = Vector3(3.93448, 4, 1)
+
+[node name="Fenetre2" type="CSGBox3D" parent="Village/Maison7/CSGBox3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.386774, 0, 0.00619221)
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Village/Maison7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30911, 1, 6.64655)
+use_collision = true
+size = Vector3(5.90027, 4, 1)
+
+[node name="Fenetre" type="CSGBox3D" parent="Village/Maison7/CSGBox3D6"]
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Village/Maison7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.59283, 1, 6.64228)
+use_collision = true
+size = Vector3(6.04922, 4, 1)
+
+[node name="Porte" type="CSGBox3D" parent="Village/Maison7/CSGBox3D9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.993593, 0)
+operation = 2
+size = Vector3(1.5, 2, 2)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Village/Maison7"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0892429, 1, 4.80705)
+use_collision = true
+size = Vector3(4.67424, 4, 1)
+
+[node name="Porte2" type="CSGBox3D" parent="Village/Maison7/CSGBox3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0128908, -0.993593, 0.116194)
+operation = 2
+size = Vector3(1.5, 2, 2)
+
+[node name="lit" type="CSGBox3D" parent="Village/Maison7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.60741, -0.5, -1.94076)
+use_collision = true
+size = Vector3(2.5, 1, 2)
+
+[node name="lit2" type="CSGBox3D" parent="Village/Maison7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.62467, -0.5, 3.79476)
+use_collision = true
+size = Vector3(2.5, 1, 2)
+
+[node name="Maison8" type="Node3D" parent="Village"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.634, 0, 20)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Village/Maison8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.709587, 1, -3.606)
+use_collision = true
+size = Vector3(11.9732, 4, 1)
+
+[node name="Fenetre4" type="CSGBox3D" parent="Village/Maison8/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.56821, 0, 0.0552406)
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="Fenetre5" type="CSGBox3D" parent="Village/Maison8/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.61783, 0, 0.0552406)
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Village/Maison8"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.11592, 1, 1.51783)
+use_collision = true
+size = Vector3(11.2332, 4, 1)
+
+[node name="Fenetre3" type="CSGBox3D" parent="Village/Maison8/CSGBox3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.92611, 0, 0.177683)
+operation = 2
+size = Vector3(4, 1.5, 2)
+
+[node name="Fenetre4" type="CSGBox3D" parent="Village/Maison8/CSGBox3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.43171, 0, 0.177683)
+operation = 2
+size = Vector3(4, 1.5, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Village/Maison8"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.74955, 1, -1.26166)
+use_collision = true
+size = Vector3(5.71118, 4, 1)
+
+[node name="Fenetre3" type="CSGBox3D" parent="Village/Maison8/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.660282, 0, 0.00619125)
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Village/Maison8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.31741, 1, 2.00278)
+use_collision = true
+size = Vector3(5.88367, 4, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Village/Maison8"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0548992, 1, -0.299685)
+use_collision = true
+size = Vector3(5.60571, 4, 1)
+
+[node name="Porte3" type="CSGBox3D" parent="Village/Maison8/CSGBox3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.547083, -0.993593, 0.116194)
+operation = 2
+size = Vector3(1.5, 2, 2)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Village/Maison8"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.74955, 1, 4.45266)
+use_collision = true
+size = Vector3(3.93448, 4, 1)
+
+[node name="Fenetre2" type="CSGBox3D" parent="Village/Maison8/CSGBox3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.386774, 0, 0.00619221)
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Village/Maison8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.30911, 1, 6.64655)
+use_collision = true
+size = Vector3(5.90027, 4, 1)
+
+[node name="Fenetre" type="CSGBox3D" parent="Village/Maison8/CSGBox3D6"]
+operation = 2
+size = Vector3(2, 1.5, 2)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Village/Maison8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.59283, 1, 6.64228)
+use_collision = true
+size = Vector3(6.04922, 4, 1)
+
+[node name="Porte" type="CSGBox3D" parent="Village/Maison8/CSGBox3D9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.993593, 0)
+operation = 2
+size = Vector3(1.5, 2, 2)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Village/Maison8"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0892429, 1, 4.80705)
+use_collision = true
+size = Vector3(4.67424, 4, 1)
+
+[node name="Porte2" type="CSGBox3D" parent="Village/Maison8/CSGBox3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0128908, -0.993593, 0.116194)
+operation = 2
+size = Vector3(1.5, 2, 2)
+
+[node name="lit" type="CSGBox3D" parent="Village/Maison8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.60741, -0.5, -1.94076)
+use_collision = true
+size = Vector3(2.5, 1, 2)
+
+[node name="lit2" type="CSGBox3D" parent="Village/Maison8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.62467, -0.5, 3.79476)
+use_collision = true
+size = Vector3(2.5, 1, 2)
+
+[node name="Pont" type="Node3D" parent="Village"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Village/Pont"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.5025, 1, 0)
+use_collision = true
+size = Vector3(5, 1, 10)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Village/Pont/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, -1.35134, -8.60271)
+size = Vector3(5, 1, 8.02631)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Village/Pont/CSGBox3D"]
+transform = Transform3D(-1, 2.99003e-08, -8.21505e-08, 0, 0.939693, 0.34202, 8.74228e-08, 0.34202, -0.939693, 0, -1.35134, 8.59438)
+size = Vector3(5, 1, 8.02631)
 
 [node name="Riviere" type="Node3D" parent="."]
+process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="Riviere" type="CSGBox3D" parent="Riviere"]
@@ -340,6 +1125,7 @@ material = SubResource("StandardMaterial3D_cp6eg")
 metadata/_edit_lock_ = true
 
 [node name="Grotte" type="Node3D" parent="."]
+process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 89.0938)
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="Grotte"]
@@ -358,24 +1144,196 @@ operation = 2
 mesh = SubResource("BoxMesh_dvi3y")
 
 [node name="Urbex" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.4189, 0, -33.5214)
+process_mode = 1
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -45.7941, 0, -58.4554)
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="Urbex"]
-transform = Transform3D(0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, 0.906308, 0, 3.5, 0)
-mesh = SubResource("BoxMesh_tdvo5")
-metadata/_edit_lock_ = true
+[node name="CSGBox3D" type="CSGBox3D" parent="Urbex"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+use_collision = true
+size = Vector3(35, 7, 1)
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="Urbex/CSGMesh3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+[node name="CSGBox3D" type="CSGBox3D" parent="Urbex/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.55541, 1.84855, 0)
 operation = 2
-mesh = SubResource("BoxMesh_fsmeh")
+size = Vector3(2, 2, 2)
 
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="Urbex/CSGMesh3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, -2, 0)
+[node name="CSGBox3D2" type="CSGBox3D" parent="Urbex/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.37415, 1.84855, 0)
 operation = 2
-mesh = SubResource("BoxMesh_uiy7j")
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Urbex/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0237, 1.84855, 0)
+operation = 2
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Urbex/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8424, 1.84855, 0)
+operation = 2
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Urbex/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.627365, 1.84855, 0)
+operation = 2
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Urbex/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.44611, 1.84855, 0)
+operation = 2
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Urbex/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.81572, 1.84855, 0)
+operation = 2
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Urbex/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99698, 1.84855, 0)
+operation = 2
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Urbex/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2745, 1.84855, 0)
+operation = 2
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Urbex/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.45574, 1.84855, 0)
+operation = 2
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Urbex/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.564, 1.84855, 0)
+operation = 2
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Urbex/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7453, 1.84855, 0)
+operation = 2
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Urbex"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 15.976)
+use_collision = true
+size = Vector3(35, 7, 1)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Urbex/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.55541, 1.84855, 0)
+operation = 2
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Urbex/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.37415, 1.84855, 0)
+operation = 2
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Urbex/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0237, 1.84855, 0)
+operation = 2
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Urbex/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8424, 1.84855, 0)
+operation = 2
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Urbex/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.627365, 1.84855, 0)
+operation = 2
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Urbex/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.44611, 1.84855, 0)
+operation = 2
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Urbex/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.81572, 1.84855, 0)
+operation = 2
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Urbex/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99698, 1.84855, 0)
+operation = 2
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Urbex/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2745, 1.84855, 0)
+operation = 2
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Urbex/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.45574, 1.84855, 0)
+operation = 2
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Urbex/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.564, 1.84855, 0)
+operation = 2
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Urbex/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7453, 1.84855, 0)
+operation = 2
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Urbex"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.984, 2.5, 7.996)
+use_collision = true
+size = Vector3(1, 7, 15)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Urbex/CSGBox3D3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.341949, 1.84855, -5.35634)
+operation = 2
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Urbex/CSGBox3D3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.116913, 1.84855, -2.57518)
+operation = 2
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Urbex/CSGBox3D3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.341949, 1.84855, 2.55085)
+operation = 2
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Urbex/CSGBox3D3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.116913, 1.84855, 5.33201)
+operation = 2
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Urbex/CSGBox3D3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.116913, 1.84855, -0.0194206)
+operation = 2
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Urbex"]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 16.9575, 2.5, 7.996)
+use_collision = true
+size = Vector3(1, 7, 15)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Urbex/CSGBox3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.01496, 0)
+operation = 2
+size = Vector3(2, 3, 4)
+
+[node name="Machine" type="CSGBox3D" parent="Urbex"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.7292, 0.5, 2.52332)
+use_collision = true
+size = Vector3(2, 3, 4)
+
+[node name="Machine2" type="CSGBox3D" parent="Urbex"]
+transform = Transform3D(0.999997, 0, 0, 0, 1, 0, 0, 0, 0.999997, 1.78818, 0.5, 11.4825)
+use_collision = true
+size = Vector3(2, 3, 8.18066)
+
+[node name="Machine3" type="CSGBox3D" parent="Urbex"]
+transform = Transform3D(0.999996, 0, 0, 0, 1, 0, 0, 0, 0.999996, -8.65221, 0.5, 3.8861)
+use_collision = true
+size = Vector3(2, 3, 6.88281)
 
 [node name="Arbre" type="Node3D" parent="."]
+process_mode = 1
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="Arbre"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -30.8319)
@@ -2292,13 +3250,12 @@ mesh = SubResource("BoxMesh_pk447")
 metadata/_edit_lock_ = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -498.708, 106.665, -0.592999)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+process_mode = 1
 environment = SubResource("Environment_0eumw")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.950163, 0, -0.311754, 0, 1, 0, 0.311754, 0, -0.950163, 0, 3.42706, 0)
 
 [node name="Menu" parent="." instance=ExtResource("3_q8p0b")]
 visible = false
@@ -2307,3 +3264,5 @@ visible = false
 visible = false
 
 [connection signal="show_book" from="Menu" to="." method="_on_menu_show_book"]
+[connection signal="hiding_livre" from="HUDLivre" to="." method="_on_hud_livre_hiding_livre"]
+[connection signal="hiding_livre" from="HUDLivre" to="Menu" method="_on_hud_livre_hiding_livre"]
