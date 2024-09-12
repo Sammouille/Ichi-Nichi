@@ -1,0 +1,2309 @@
+[gd_scene load_steps=23 format=3 uid="uid://djcs313s8byon"]
+
+[ext_resource type="Texture2D" uid="uid://c00irbjkt7kag" path="res://Assets/2D/TextureBlocJumpV1.jpg" id="1_12j2h"]
+[ext_resource type="Script" path="res://ScriptsEtScenes/Map/tiers_lieux.gd" id="1_o8rsa"]
+[ext_resource type="PackedScene" uid="uid://b1rrltdjkgbfv" path="res://ScriptsEtScenes/Personnage/perso.tscn" id="2_1noys"]
+[ext_resource type="PackedScene" uid="uid://cx2nngktbbklb" path="res://ScriptsEtScenes/UI/menu.tscn" id="3_q8p0b"]
+[ext_resource type="PackedScene" uid="uid://c72rg4qbq0p4o" path="res://ScriptsEtScenes/UI/hud_livre.tscn" id="5_e6vxp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xoye"]
+albedo_color = Color(0.0980392, 0.529412, 0.0627451, 1)
+albedo_texture = ExtResource("1_12j2h")
+uv1_triplanar = true
+uv1_triplanar_sharpness = 57.68
+
+[sub_resource type="BoxMesh" id="BoxMesh_trfu1"]
+size = Vector3(10, 4, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_trtae"]
+size = Vector3(9, 3.8, 9)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4u5tf"]
+size = Vector3(2, 2.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_a5k5j"]
+size = Vector3(1, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cp6eg"]
+albedo_color = Color(0.113725, 0.447059, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7hdot"]
+size = Vector3(50, 20, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4x2kk"]
+size = Vector3(49, 19, 49)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dvi3y"]
+size = Vector3(13, 13, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tdvo5"]
+size = Vector3(30, 9, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fsmeh"]
+size = Vector3(29, 8, 19)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uiy7j"]
+size = Vector3(5, 5, 8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5qv88"]
+albedo_color = Color(0.788235, 0.286275, 0.176471, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pk447"]
+material = SubResource("StandardMaterial3D_5qv88")
+size = Vector3(1.5, 7, 1.5)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_54vhi"]
+
+[sub_resource type="Sky" id="Sky_tpxv1"]
+sky_material = SubResource("ProceduralSkyMaterial_54vhi")
+
+[sub_resource type="Environment" id="Environment_0eumw"]
+background_mode = 2
+sky = SubResource("Sky_tpxv1")
+ambient_light_source = 2
+ambient_light_color = Color(0.972549, 1, 1, 1)
+ambient_light_energy = 0.5
+
+[node name="TiersLieux" type="Node3D"]
+script = ExtResource("1_o8rsa")
+
+[node name="Perso" parent="." instance=ExtResource("2_1noys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.4451, 0, -15.6893)
+
+[node name="GroundMesh" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+use_collision = true
+radius = 100.0
+material = SubResource("StandardMaterial3D_4xoye")
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9376, 1, 0)
+operation = 2
+size = Vector3(51.2235, 2, 12)
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere2" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, 43.4123, 1, 0.937003)
+operation = 2
+size = Vector3(10, 2, 12)
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere3" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, 0.939693, 32.792, 1, 3.72263)
+operation = 2
+size = Vector3(10, 2, 12)
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere4" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(0.866026, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866026, 23.0034, 1, 8.33194)
+operation = 2
+size = Vector3(10, 2, 12)
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere5" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(0.766045, 0, 0.642788, 0, 1, 0, -0.642788, 0, 0.766045, 14.0584, 1, 14.6075)
+operation = 2
+size = Vector3(10, 2, 12)
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere6" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(0.5, 0, 0.866026, 0, 1, 0, -0.866026, 0, 0.5, 6.53717, 1, 23.481)
+operation = 2
+size = Vector3(10, 2, 12)
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere7" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, 2.68809, 1, 34.1346)
+operation = 2
+size = Vector3(10, 2, 12)
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere9" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(0.992803, 0, -0.119756, 0, 1, 0, 0.119756, 0, 0.992803, 1.62911, 1, 39.3567)
+operation = 2
+size = Vector3(11.6249, 2, 2.11243)
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere10" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(0.938734, 0, -0.344643, 0, 1, 0, 0.344643, 0, 0.938734, 3.75784, 1, 28.2724)
+operation = 2
+size = Vector3(11.5366, 2, 4.12289)
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere11" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(0.766112, 0, -0.642707, 0, 1, 0, 0.642707, 0, 0.766112, 9.7103, 1, 18.3585)
+operation = 2
+size = Vector3(11.7325, 2, 4.12289)
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere12" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(0.577829, 0, -0.816158, 0, 1, 0, 0.816158, 0, 0.577829, 18.5373, 1, 11.0242)
+operation = 2
+size = Vector3(12.0879, 2, 2.47252)
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere13" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(0.449319, 0, -0.893371, 0, 1, 0, 0.893371, 0, 0.449319, 27.8235, 1, 5.52198)
+operation = 2
+size = Vector3(11.8235, 2, 2.27141)
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere14" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(0.221072, 0, -0.975257, 0, 1, 0, 0.975257, 0, 0.221072, 38.1576, 1, 1.82901)
+operation = 2
+size = Vector3(11.829, 2, 3.01195)
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere15" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(0.0948553, 0, -0.995491, 0, 1, 0, 0.995491, 0, 0.0948553, 48.7335, 1, -0.0157178)
+operation = 2
+size = Vector3(11.8428, 2, 2.43566)
+metadata/_edit_lock_ = true
+
+[node name="CreuxRiviere8" type="CSGBox3D" parent="GroundMesh"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.73769, 1, 79.6213)
+operation = 2
+size = Vector3(80, 2, 12)
+metadata/_edit_lock_ = true
+
+[node name="Village" type="Node3D" parent="."]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Village"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85, 1, -20)
+mesh = SubResource("BoxMesh_trfu1")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Village"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 1, -20)
+mesh = SubResource("BoxMesh_trfu1")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Village"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55, 1, -20)
+mesh = SubResource("BoxMesh_trfu1")
+metadata/_edit_lock_ = true
+
+[node name="MaisonProta" type="CSGMesh3D" parent="Village"]
+transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, 38.093, 1, -18)
+mesh = SubResource("BoxMesh_trfu1")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Village/MaisonProta"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, -0.1, 0)
+operation = 2
+mesh = SubResource("BoxMesh_trtae")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Village/MaisonProta"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 2.82721, -0.75, 4.59221)
+operation = 2
+mesh = SubResource("BoxMesh_4u5tf")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Village/MaisonProta"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -4.89335, 0.350707, 2.16385)
+operation = 2
+mesh = SubResource("BoxMesh_a5k5j")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="Village/MaisonProta"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -4.81168, 0.350707, -2.20021)
+operation = 2
+mesh = SubResource("BoxMesh_a5k5j")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D5" type="CSGMesh3D" parent="Village/MaisonProta"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 4.8126, 0.350707, -2.09109)
+operation = 2
+mesh = SubResource("BoxMesh_a5k5j")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D6" type="CSGMesh3D" parent="Village/MaisonProta"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 4.91095, 0.350707, 2.97183)
+operation = 2
+mesh = SubResource("BoxMesh_a5k5j")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="Village"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85, 1, 20)
+mesh = SubResource("BoxMesh_trfu1")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D5" type="CSGMesh3D" parent="Village"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 1, 20)
+mesh = SubResource("BoxMesh_trfu1")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D6" type="CSGMesh3D" parent="Village"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55, 1, 20)
+mesh = SubResource("BoxMesh_trfu1")
+metadata/_edit_lock_ = true
+
+[node name="Riviere" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Riviere" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9376, -3, 0)
+size = Vector3(51.2235, 2, 12)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="Riviere2" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, 43.4123, -3, 0.937003)
+size = Vector3(10, 2, 12)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="Riviere3" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, 0.939693, 32.792, -3, 3.72263)
+size = Vector3(10, 2, 12)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="Riviere4" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(0.866026, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866026, 23.0034, -3, 8.33194)
+size = Vector3(10, 2, 12)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="Riviere5" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(0.766045, 0, 0.642788, 0, 1, 0, -0.642788, 0, 0.766045, 14.0584, -3, 14.6075)
+size = Vector3(10, 2, 12)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="Riviere6" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(0.5, 0, 0.866026, 0, 1, 0, -0.866026, 0, 0.5, 6.53717, -3, 23.481)
+size = Vector3(10, 2, 12)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="Riviere7" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, 2.68809, -3, 34.1346)
+size = Vector3(10, 2, 12)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="Riviere9" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(0.992803, 0, -0.119756, 0, 1, 0, 0.119756, 0, 0.992803, 1.62911, -3, 39.3567)
+size = Vector3(11.6249, 2, 2.11243)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="Riviere10" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(0.938734, 0, -0.344643, 0, 1, 0, 0.344643, 0, 0.938734, 3.75784, -3, 28.2724)
+size = Vector3(11.5366, 2, 4.12289)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="Riviere11" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(0.766112, 0, -0.642707, 0, 1, 0, 0.642707, 0, 0.766112, 9.7103, -3, 18.3585)
+size = Vector3(11.7325, 2, 4.12289)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="Riviere12" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(0.577829, 0, -0.816158, 0, 1, 0, 0.816158, 0, 0.577829, 18.5373, -3, 11.0242)
+size = Vector3(12.0879, 2, 2.47252)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="Riviere13" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(0.449319, 0, -0.893371, 0, 1, 0, 0.893371, 0, 0.449319, 27.8235, -3, 5.52198)
+size = Vector3(11.8235, 2, 2.27141)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="Riviere14" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(0.221072, 0, -0.975257, 0, 1, 0, 0.975257, 0, 0.221072, 38.1576, -3, 1.82901)
+size = Vector3(11.829, 2, 3.01195)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="Riviere15" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(0.0948553, 0, -0.995491, 0, 1, 0, 0.995491, 0, 0.0948553, 48.7335, -3, -0.0157178)
+size = Vector3(11.8428, 2, 2.43566)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="Riviere8" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.73769, -3, 79.6213)
+size = Vector3(80, 2, 12)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="Riviere16" type="CSGBox3D" parent="Riviere"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 1.738, -11.6254, 48)
+size = Vector3(62.7491, 2, 12)
+material = SubResource("StandardMaterial3D_cp6eg")
+metadata/_edit_lock_ = true
+
+[node name="Grotte" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 89.0938)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Grotte"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, -15.306)
+mesh = SubResource("BoxMesh_7hdot")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Grotte/CSGMesh3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+operation = 2
+mesh = SubResource("BoxMesh_4x2kk")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Grotte/CSGMesh3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -3.5, -24)
+operation = 2
+mesh = SubResource("BoxMesh_dvi3y")
+
+[node name="Urbex" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.4189, 0, -33.5214)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Urbex"]
+transform = Transform3D(0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, 0.906308, 0, 3.5, 0)
+mesh = SubResource("BoxMesh_tdvo5")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Urbex/CSGMesh3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+operation = 2
+mesh = SubResource("BoxMesh_fsmeh")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Urbex/CSGMesh3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, -2, 0)
+operation = 2
+mesh = SubResource("BoxMesh_uiy7j")
+
+[node name="Arbre" type="Node3D" parent="."]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -30.8319)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8248, 2.5, -34.0299)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.95787, 2.5, -34.0299)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.82438, 2.5, -40.2583)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D5" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.778714, 0, 0.627379, 0, 1, 0, -0.627379, 0, -0.778714, -4.40211, 2.5, -52.3556)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D6" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.778714, 0, 0.627379, 0, 1, 0, -0.627379, 0, -0.778714, -10.1656, 2.5, -52.8922)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D7" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.778714, 0, 0.627379, 0, 1, 0, -0.627379, 0, -0.778714, -2.54772, 2.5, -46.7548)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D8" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.778714, 0, 0.627379, 0, 1, 0, -0.627379, 0, -0.778714, -3.44436, 2.5, -39.4789)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D9" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.230916, 0, 0.972974, 0, 1, 0, -0.972974, 0, 0.230916, 11.9983, 2.5, -49.1358)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D10" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.230916, 0, 0.972974, 0, 1, 0, -0.972974, 0, 0.230916, 10.0008, 2.5, -54.5687)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D11" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.230916, 0, 0.972974, 0, 1, 0, -0.972974, 0, 0.230916, 7.74185, 2.5, -45.0504)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D12" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.230916, 0, 0.972974, 0, 1, 0, -0.972974, 0, 0.230916, 0.788978, 2.5, -42.7266)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D13" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.520652, 0, -0.853769, 0, 1, 0, 0.853769, 0, 0.520652, 13.0803, 2.5, -33.094)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D14" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.520652, 0, -0.853769, 0, 1, 0, 0.853769, 0, 0.520652, 18.3227, 2.5, -30.6398)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D15" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.520652, 0, -0.853769, 0, 1, 0, 0.853769, 0, 0.520652, 13.2294, 2.5, -38.992)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D16" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.520652, 0, -0.853769, 0, 1, 0, 0.853769, 0, 0.520652, 16.5338, 2.5, -45.5359)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D17" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.130197, 0, 0.991488, 0, 1, 0, -0.991488, 0, 0.130197, 29.1646, 2.5, -48.0588)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D18" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.130197, 0, 0.991488, 0, 1, 0, -0.991488, 0, 0.130197, 26.622, 2.5, -53.2589)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D19" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.130197, 0, 0.991488, 0, 1, 0, -0.991488, 0, 0.130197, 25.3483, 2.5, -43.5595)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D20" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.130197, 0, 0.991488, 0, 1, 0, -0.991488, 0, 0.130197, 18.6695, 2.5, -40.5368)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D21" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.950922, 0, 0.309432, 0, 1, 0, -0.309432, 0, 0.950922, 34.9545, 2.5, -32.3802)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D22" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.950922, 0, 0.309432, 0, 1, 0, -0.309432, 0, 0.950922, 38.553, 2.5, -36.9142)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D23" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.950922, 0, 0.309432, 0, 1, 0, -0.309432, 0, 0.950922, 29.2504, 2.5, -33.8871)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D24" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.950922, 0, 0.309432, 0, 1, 0, -0.309432, 0, 0.950922, 23.6464, 2.5, -38.6134)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D25" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.648811, 0, 0.76095, 0, 1, 0, -0.76095, 0, -0.648811, 33.6496, 2.5, -72.4915)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D26" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.648811, 0, 0.76095, 0, 1, 0, -0.76095, 0, -0.648811, 28.0857, 2.5, -74.0881)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D27" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.648811, 0, 0.76095, 0, 1, 0, -0.76095, 0, -0.648811, 34.4328, 2.5, -66.644)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D28" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.648811, 0, 0.76095, 0, 1, 0, -0.76095, 0, -0.648811, 32.202, 2.5, -59.6607)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D29" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.0278345, 0, -0.999613, 0, 1, 0, 0.999613, 0, 0.0278345, 20.1273, 2.5, -55.177)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D30" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.0278345, 0, -0.999613, 0, 1, 0, 0.999613, 0, 0.0278345, 23.4584, 2.5, -50.4431)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D31" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.0278345, 0, -0.999613, 0, 1, 0, 0.999613, 0, 0.0278345, 23.1861, 2.5, -60.2219)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D32" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.0278345, 0, -0.999613, 0, 1, 0, 0.999613, 0, 0.0278345, 29.3044, 2.5, -64.2603)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D33" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.890205, 0, -0.455561, 0, 1, 0, 0.455561, 0, -0.890205, 11.9366, 2.5, -69.7459)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D34" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.890205, 0, -0.455561, 0, 1, 0, 0.455561, 0, -0.890205, 9.09849, 2.5, -64.701)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D35" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.890205, 0, -0.455561, 0, 1, 0, 0.455561, 0, -0.890205, 17.8071, 2.5, -69.1576)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D36" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.890205, 0, -0.455561, 0, 1, 0, 0.455561, 0, -0.890205, 24.0864, 2.5, -65.3745)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D37" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.885856, 0, 0.463961, 0, 1, 0, -0.463961, 0, -0.885856, 82.7375, 2.5, -65.4913)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D38" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.885856, 0, 0.463961, 0, 1, 0, -0.463961, 0, -0.885856, 76.9797, 2.5, -64.8969)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D39" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.885856, 0, 0.463961, 0, 1, 0, -0.463961, 0, -0.885856, 85.6457, 2.5, -60.3581)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D40" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.885856, 0, 0.463961, 0, 1, 0, -0.463961, 0, -0.885856, 86.1811, 2.5, -53.0468)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D41" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.398749, 0, -0.91706, 0, 1, 0, 0.91706, 0, 0.398749, 76.651, 2.5, -44.3821)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D42" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.398749, 0, -0.91706, 0, 1, 0, 0.91706, 0, 0.398749, 81.5077, 2.5, -41.2327)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D43" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.398749, 0, -0.91706, 0, 1, 0, 0.91706, 0, 0.398749, 77.6068, 2.5, -50.2039)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D44" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.398749, 0, -0.91706, 0, 1, 0, 0.91706, 0, 0.398749, 81.7768, 2.5, -56.2333)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D45" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.65598, 0, -0.754778, 0, 1, 0, 0.754778, 0, -0.65598, 63.6165, 2.5, -54.8435)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D46" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.65598, 0, -0.754778, 0, 1, 0, 0.754778, 0, -0.65598, 62.8653, 2.5, -49.104)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D47" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.65598, 0, -0.754778, 0, 1, 0, 0.754778, 0, -0.65598, 69.2825, 2.5, -56.4877)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D48" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.65598, 0, -0.754778, 0, 1, 0, 0.754778, 0, -0.65598, 76.5199, 2.5, -55.3204)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D49" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.065107, 0, 0.997878, 0, 1, 0, -0.997878, 0, -0.065107, 70.1007, 2.5, -69.5562)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D50" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.065107, 0, 0.997878, 0, 1, 0, -0.997878, 0, -0.065107, 66.5953, 2.5, -74.1626)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D51" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.065107, 0, 0.997878, 0, 1, 0, -0.997878, 0, -0.065107, 67.2323, 2.5, -64.4007)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D52" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.065107, 0, 0.997878, 0, 1, 0, -0.997878, 0, -0.065107, 61.2688, 2.5, -60.1368)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D53" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.575348, 0, -0.817909, 0, 1, 0, 0.817909, 0, -0.575348, 48.9093, 2.5, -63.7621)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D54" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.575348, 0, -0.817909, 0, 1, 0, 0.817909, 0, -0.575348, 48.7491, 2.5, -57.9759)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D55" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.575348, 0, -0.817909, 0, 1, 0, 0.817909, 0, -0.575348, 54.3775, 2.5, -65.9772)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D56" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.575348, 0, -0.817909, 0, 1, 0, 0.817909, 0, -0.575348, 61.6963, 2.5, -65.5562)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D57" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.985944, 0, 0.167078, 0, 1, 0, -0.167078, 0, -0.985944, 51.0545, 2.5, -80.3373)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D58" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.985944, 0, 0.167078, 0, 1, 0, -0.167078, 0, -0.985944, 45.7632, 2.5, -77.9904)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D59" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.985944, 0, 0.167078, 0, 1, 0, -0.167078, 0, -0.985944, 55.4083, 2.5, -76.3559)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D60" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.985944, 0, 0.167078, 0, 1, 0, -0.167078, 0, -0.985944, 58.1799, 2.5, -69.5691)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D61" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.221702, 0, -0.975115, 0, 1, 0, 0.975115, 0, 0.221702, 33.6004, 2.5, -44.199)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D62" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.221702, 0, -0.975115, 0, 1, 0, 0.975115, 0, 0.221702, 37.7885, 2.5, -40.2033)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D63" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.221702, 0, -0.975115, 0, 1, 0, 0.975115, 0, 0.221702, 35.6196, 2.5, -49.7425)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D64" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.221702, 0, -0.975115, 0, 1, 0, 0.975115, 0, 0.221702, 40.8358, 2.5, -54.8937)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D65" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.439124, 0, 0.898427, 0, 1, 0, -0.898427, 0, 0.439124, 53.6125, 2.5, -53.2634)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D66" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.439124, 0, 0.898427, 0, 1, 0, -0.898427, 0, 0.439124, 52.8579, 2.5, -59.0025)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D67" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.439124, 0, 0.898427, 0, 1, 0, -0.898427, 0, 0.439124, 48.5621, 2.5, -50.2135)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D68" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.439124, 0, 0.898427, 0, 1, 0, -0.898427, 0, 0.439124, 41.2685, 2.5, -49.4747)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D69" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.999955, 0, -0.00945947, 0, 1, 0, 0.00945947, 0, 0.999955, 54.1088, 2.5, -36.5573)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D70" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.999955, 0, -0.00945947, 0, 1, 0, 0.00945947, 0, 0.999955, 58.9636, 2.5, -39.7096)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D71" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.999955, 0, -0.00945947, 0, 1, 0, 0.00945947, 0, 0.999955, 49.1814, 2.5, -39.8021)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D72" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.999955, 0, -0.00945947, 0, 1, 0, 0.00945947, 0, 0.999955, 45.374, 2.5, -46.0668)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D73" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.97746, 0, 0.21112, 0, 1, 0, -0.21112, 0, -0.97746, -3.49578, 2.5, -81.8368)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D74" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.97746, 0, 0.21112, 0, 1, 0, -0.21112, 0, -0.97746, -8.88699, 2.5, -79.7295)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D75" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.97746, 0, 0.21112, 0, 1, 0, -0.21112, 0, -0.97746, 0.675184, 2.5, -77.6642)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D76" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.97746, 0, 0.21112, 0, 1, 0, -0.21112, 0, -0.97746, 3.13961, 2.5, -70.7599)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D77" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.62871, 0, -0.77764, 0, 1, 0, 0.77764, 0, 0.62871, -3.73696, 2.5, -59.8689)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D78" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.62871, 0, -0.77764, 0, 1, 0, 0.77764, 0, 0.62871, 1.78334, 2.5, -58.1276)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D79" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.62871, 0, -0.77764, 0, 1, 0, 0.77764, 0, 0.62871, -4.36711, 2.5, -65.735)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D80" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.62871, 0, -0.77764, 0, 1, 0, 0.77764, 0, 0.62871, -1.95459, 2.5, -72.6576)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D81" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.431125, 0, -0.902292, 0, 1, 0, 0.902292, 0, -0.431125, -19.0879, 2.5, -66.4786)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D82" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.431125, 0, -0.902292, 0, 1, 0, 0.902292, 0, -0.431125, -18.2825, 2.5, -60.7465)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D83" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.431125, 0, -0.902292, 0, 1, 0, 0.902292, 0, -0.431125, -14.0649, 2.5, -69.5733)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D84" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.431125, 0, -0.902292, 0, 1, 0, 0.902292, 0, -0.431125, -6.77817, 2.5, -70.3768)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D85" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.328669, 0, 0.944445, 0, 1, 0, -0.944445, 0, -0.328669, -16.7588, 2.5, -82.3872)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D86" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.328669, 0, 0.944445, 0, 1, 0, -0.944445, 0, -0.328669, -21.3649, 2.5, -85.8929)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D87" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.328669, 0, 0.944445, 0, 1, 0, -0.944445, 0, -0.328669, -18.1497, 2.5, -76.6537)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D88" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.328669, 0, 0.944445, 0, 1, 0, -0.944445, 0, -0.328669, -22.7612, 2.5, -70.9549)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D89" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.336586, 0, -0.941653, 0, 1, 0, 0.941653, 0, -0.336586, -35.6399, 2.5, -71.1555)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D90" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.336586, 0, -0.941653, 0, 1, 0, 0.941653, 0, -0.336586, -34.2524, 2.5, -65.5358)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D91" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.336586, 0, -0.941653, 0, 1, 0, 0.941653, 0, -0.336586, -30.9597, 2.5, -74.7477)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D92" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.336586, 0, -0.941653, 0, 1, 0, 0.941653, 0, -0.336586, -23.7934, 2.5, -76.2922)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D93" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.994815, 0, -0.101699, 0, 1, 0, 0.101699, 0, -0.994815, -37.9893, 2.5, -87.7031)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D94" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.994815, 0, -0.101699, 0, 1, 0, 0.101699, 0, -0.994815, -42.4639, 2.5, -84.0309)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D95" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.994815, 0, -0.101699, 0, 1, 0, 0.101699, 0, -0.994815, -32.7319, 2.5, -85.0258)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D96" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.994815, 0, -0.101699, 0, 1, 0, 0.101699, 0, -0.994815, -28.252, 2.5, -79.223)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D97" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.473535, 0, -0.880775, 0, 1, 0, 0.880775, 0, 0.473535, -45.1821, 2.5, -48.2203)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D98" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.473535, 0, -0.880775, 0, 1, 0, 0.880775, 0, 0.473535, -40.0807, 2.5, -45.4851)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D99" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.473535, 0, -0.880775, 0, 1, 0, 0.880775, 0, 0.473535, -44.7131, 2.5, -54.1015)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D100" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.473535, 0, -0.880775, 0, 1, 0, 0.880775, 0, 0.473535, -41.0582, 2.5, -60.4563)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D101" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.183831, 0, 0.982958, 0, 1, 0, -0.982958, 0, 0.183831, -28.3091, 2.5, -62.2898)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D102" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.183831, 0, 0.982958, 0, 1, 0, -0.982958, 0, 0.183831, -30.5657, 2.5, -67.6203)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D103" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.183831, 0, 0.982958, 0, 1, 0, -0.982958, 0, 0.183831, -32.3641, 2.5, -58.0043)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D104" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.183831, 0, 0.982958, 0, 1, 0, -0.982958, 0, 0.183831, -39.1971, 2.5, -55.3487)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D105" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.966318, 0, 0.257352, 0, 1, 0, -0.257352, 0, 0.966318, -23.3789, 2.5, -46.32)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D106" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.966318, 0, 0.257352, 0, 1, 0, -0.257352, 0, 0.966318, -19.5396, 2.5, -50.652)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D107" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.966318, 0, 0.257352, 0, 1, 0, -0.257352, 0, 0.966318, -28.9928, 2.5, -48.1344)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D108" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.966318, 0, 0.257352, 0, 1, 0, -0.257352, 0, 0.966318, -34.3319, 2.5, -53.1579)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D109" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.999386, 0, -0.0350215, 0, 1, 0, 0.0350215, 0, 0.999386, 2.2148, 2.5, -82.0917)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D110" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.999386, 0, -0.0350215, 0, 1, 0, 0.0350215, 0, 0.999386, 7.14863, 2.5, -85.1188)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D111" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.999386, 0, -0.0350215, 0, 1, 0, 0.0350215, 0, 0.999386, -2.62804, 2.5, -85.4614)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D112" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.999386, 0, -0.0350215, 0, 1, 0, 0.0350215, 0, 0.999386, -6.27404, 2.5, -91.8213)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D113" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.756265, 0, 0.654266, 0, 1, 0, -0.654266, 0, -0.756265, -1.43083, 2.5, -103.756)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D114" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.756265, 0, 0.654266, 0, 1, 0, -0.654266, 0, -0.756265, -7.172, 2.5, -104.494)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D115" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.756265, 0, 0.654266, 0, 1, 0, -0.654266, 0, -0.756265, 0.226278, 2.5, -98.094)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D116" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.756265, 0, 0.654266, 0, 1, 0, -0.654266, 0, -0.756265, -0.924625, 2.5, -90.854)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D117" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.264849, 0, 0.96429, 0, 1, 0, -0.96429, 0, 0.264849, 14.8468, 2.5, -99.9641)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D118" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.264849, 0, 0.96429, 0, 1, 0, -0.96429, 0, 0.264849, 13.0408, 2.5, -105.464)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D119" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.264849, 0, 0.96429, 0, 1, 0, -0.96429, 0, 0.264849, 10.4498, 2.5, -96.0303)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D120" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.264849, 0, 0.96429, 0, 1, 0, -0.96429, 0, 0.264849, 3.41986, 2.5, -93.9514)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D121" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.490432, 0, -0.871479, 0, 1, 0, 0.871479, 0, 0.490432, 15.3663, 2.5, -83.8943)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D122" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.490432, 0, -0.871479, 0, 1, 0, 0.871479, 0, 0.490432, 20.5195, 2.5, -81.258)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D123" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.490432, 0, -0.871479, 0, 1, 0, 0.871479, 0, 0.490432, 15.7218, 2.5, -89.7834)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D124" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.490432, 0, -0.871479, 0, 1, 0, 0.871479, 0, 0.490432, 19.2534, 2.5, -96.2076)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D125" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.164841, 0, 0.98632, 0, 1, 0, -0.98632, 0, 0.164841, 31.9648, 2.5, -98.2865)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D126" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.164841, 0, 0.98632, 0, 1, 0, -0.98632, 0, 0.164841, 29.6058, 2.5, -103.573)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D127" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.164841, 0, 0.98632, 0, 1, 0, -0.98632, 0, 0.164841, 27.9933, 2.5, -93.9237)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D128" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.164841, 0, 0.98632, 0, 1, 0, -0.98632, 0, 0.164841, 21.2127, 2.5, -91.1367)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D129" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.961175, 0, 0.275939, 0, 1, 0, -0.275939, 0, 0.961175, 37.2021, 2.5, -82.4148)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D130" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.961175, 0, 0.275939, 0, 1, 0, -0.275939, 0, 0.961175, 40.9571, 2.5, -86.8201)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D131" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.961175, 0, 0.275939, 0, 1, 0, -0.275939, 0, 0.961175, 31.5543, 2.5, -84.1206)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D132" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.961175, 0, 0.275939, 0, 1, 0, -0.275939, 0, 0.961175, 26.1192, 2.5, -89.0402)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D133" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.621763, 0, 0.783205, 0, 1, 0, -0.783205, 0, -0.621763, 37.3027, 2.5, -122.547)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D134" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.621763, 0, 0.783205, 0, 1, 0, -0.783205, 0, -0.621763, 31.7982, 2.5, -124.338)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D135" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.621763, 0, 0.783205, 0, 1, 0, -0.783205, 0, -0.621763, 37.8807, 2.5, -116.676)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D136" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.621763, 0, 0.783205, 0, 1, 0, -0.783205, 0, -0.621763, 35.4066, 2.5, -109.775)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D137" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.00719048, 0, -0.999974, 0, 1, 0, 0.999974, 0, -0.00719048, 23.1824, 2.5, -105.717)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D138" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.00719048, 0, -0.999974, 0, 1, 0, 0.999974, 0, -0.00719048, 26.3456, 2.5, -100.869)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D139" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.00719048, 0, -0.999974, 0, 1, 0, 0.999974, 0, -0.00719048, 26.4159, 2.5, -110.652)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D140" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.00719048, 0, -0.999974, 0, 1, 0, 0.999974, 0, -0.00719048, 32.672, 2.5, -114.473)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D141" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.905613, 0, -0.424105, 0, 1, 0, 0.424105, 0, -0.905613, 15.5069, 2.5, -120.564)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D142" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.905613, 0, -0.424105, 0, 1, 0, 0.424105, 0, -0.905613, 12.4938, 2.5, -115.621)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D143" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.905613, 0, -0.424105, 0, 1, 0, 0.424105, 0, -0.905613, 21.3532, 2.5, -119.77)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D144" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.905613, 0, -0.424105, 0, 1, 0, 0.424105, 0, -0.905613, 27.4962, 2.5, -115.77)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D145" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.99979, 0, 0.0204886, 0, 1, 0, -0.0204886, 0, -0.99979, 67.065, 2.5, 34.0594)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D146" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.99979, 0, 0.0204886, 0, 1, 0, -0.0204886, 0, -0.99979, 62.1757, 2.5, 37.1579)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D147" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.99979, 0, 0.0204886, 0, 1, 0, -0.0204886, 0, -0.99979, 71.9563, 2.5, 37.3584)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D148" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.99979, 0, 0.0204886, 0, 1, 0, -0.0204886, 0, -0.99979, 75.6944, 2.5, 43.6646)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D149" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.765697, 0, -0.643202, 0, 1, 0, 0.643202, 0, 0.765697, 71.0252, 2.5, 55.6688)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D150" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.765697, 0, -0.643202, 0, 1, 0, 0.643202, 0, 0.765697, 76.7765, 2.5, 56.3234)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D151" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.765697, 0, -0.643202, 0, 1, 0, 0.643202, 0, 0.765697, 69.286, 2.5, 50.0312)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D152" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.765697, 0, -0.643202, 0, 1, 0, 0.643202, 0, 0.765697, 70.3315, 2.5, 42.7752)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D153" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.250802, 0, -0.968038, 0, 1, 0, 0.968038, 0, -0.250802, 54.6942, 2.5, 52.1137)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D154" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.250802, 0, -0.968038, 0, 1, 0, 0.968038, 0, -0.250802, 56.58, 2.5, 57.5863)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D155" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.250802, 0, -0.968038, 0, 1, 0, 0.968038, 0, -0.250802, 59.0335, 2.5, 48.1163)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D156" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.250802, 0, -0.968038, 0, 1, 0, 0.968038, 0, -0.250802, 66.0325, 2.5, 45.9355)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D157" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.50305, 0, 0.864257, 0, 1, 0, -0.864257, 0, -0.50305, 53.9411, 2.5, 36.0531)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D158" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.50305, 0, 0.864257, 0, 1, 0, -0.864257, 0, -0.50305, 48.7501, 2.5, 33.492)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D159" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.50305, 0, 0.864257, 0, 1, 0, -0.864257, 0, -0.50305, 53.6713, 2.5, 41.9467)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D160" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.50305, 0, 0.864257, 0, 1, 0, -0.864257, 0, -0.50305, 50.2334, 2.5, 48.4215)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D161" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.150484, 0, -0.988612, 0, 1, 0, 0.988612, 0, -0.150484, 37.5536, 2.5, 50.6851)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D162" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.150484, 0, -0.988612, 0, 1, 0, 0.988612, 0, -0.150484, 39.9892, 2.5, 55.9362)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D163" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.150484, 0, -0.988612, 0, 1, 0, 0.988612, 0, -0.150484, 41.4613, 2.5, 46.265)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D164" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.150484, 0, -0.988612, 0, 1, 0, 0.988612, 0, -0.150484, 48.2006, 2.5, 43.3797)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D165" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.957062, 0, -0.289884, 0, 1, 0, 0.289884, 0, -0.957062, 32.0861, 2.5, 34.8912)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D166" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.957062, 0, -0.289884, 0, 1, 0, 0.289884, 0, -0.957062, 28.3955, 2.5, 39.3506)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D167" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.957062, 0, -0.289884, 0, 1, 0, 0.289884, 0, -0.957062, 37.7582, 2.5, 36.5147)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D168" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.957062, 0, -0.289884, 0, 1, 0, 0.289884, 0, -0.957062, 43.2641, 2.5, 41.3548)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D169" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.633084, 0, -0.774083, 0, 1, 0, 0.774083, 0, 0.633084, 32.5689, 2.5, 75.0209)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D170" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.633084, 0, -0.774083, 0, 1, 0, 0.774083, 0, 0.633084, 38.099, 2.5, 76.7311)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D171" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.633084, 0, -0.774083, 0, 1, 0, 0.774083, 0, 0.633084, 31.9057, 2.5, 69.1585)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D172" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.633084, 0, -0.774083, 0, 1, 0, 0.774083, 0, 0.633084, 34.2792, 2.5, 62.2224)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D173" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.00734808, 0, 0.999973, 0, 1, 0, -0.999973, 0, -0.00734808, 46.4431, 2.5, 57.987)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D174" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.00734808, 0, 0.999973, 0, 1, 0, -0.999973, 0, -0.00734808, 43.2098, 2.5, 53.1858)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D175" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.00734808, 0, 0.999973, 0, 1, 0, -0.999973, 0, -0.00734808, 43.2817, 2.5, 62.9682)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D176" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.00734808, 0, 0.999973, 0, 1, 0, -0.999973, 0, -0.00734808, 37.0819, 2.5, 66.8804)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D177" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.899352, 0, 0.437226, 0, 1, 0, -0.437226, 0, 0.899352, 54.3336, 2.5, 72.7207)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D178" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.899352, 0, 0.437226, 0, 1, 0, -0.437226, 0, 0.899352, 57.2745, 2.5, 67.735)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D179" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.899352, 0, 0.437226, 0, 1, 0, -0.437226, 0, 0.899352, 48.4765, 2.5, 72.0122)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D180" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.899352, 0, 0.437226, 0, 1, 0, -0.437226, 0, 0.899352, 42.2759, 2.5, 68.1013)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D181" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.708401, 0, -0.70581, 0, 1, 0, 0.70581, 0, -0.708401, -50.3854, 2.5, 27.7823)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D182" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.708401, 0, -0.70581, 0, 1, 0, 0.70581, 0, -0.708401, -51.5461, 2.5, 33.4532)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D183" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.708401, 0, -0.70581, 0, 1, 0, 0.70581, 0, -0.708401, -44.6161, 2.5, 26.5485)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D184" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.708401, 0, -0.70581, 0, 1, 0, 0.70581, 0, -0.708401, -37.481, 2.5, 28.2317)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D185" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.994452, 0, 0.105188, 0, 1, 0, -0.105188, 0, 0.994452, -32.0754, 2.5, 39.9227)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D186" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.994452, 0, 0.105188, 0, 1, 0, -0.105188, 0, 0.994452, -27.6137, 2.5, 36.2349)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D187" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.994452, 0, 0.105188, 0, 1, 0, -0.105188, 0, 0.994452, -37.3421, 2.5, 37.2639)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D188" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.994452, 0, 0.105188, 0, 1, 0, -0.105188, 0, 0.994452, -41.8423, 2.5, 31.4768)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D189" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.523153, 0, -0.852239, 0, 1, 0, 0.852239, 0, 0.523153, -45.966, 2.5, 49.2173)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D190" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.523153, 0, -0.852239, 0, 1, 0, 0.852239, 0, 0.523153, -40.7164, 2.5, 51.6562)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D191" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.523153, 0, -0.852239, 0, 1, 0, 0.852239, 0, 0.523153, -45.8342, 2.5, 43.319)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D192" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.523153, 0, -0.852239, 0, 1, 0, 0.852239, 0, 0.523153, -42.549, 2.5, 36.7654)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D193" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.971429, 0, 0.23733, 0, 1, 0, -0.23733, 0, -0.971429, -58.055, 2.5, 38.617)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D194" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.971429, 0, 0.23733, 0, 1, 0, -0.23733, 0, -0.971429, -63.5009, 2.5, 40.5786)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D195" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.971429, 0, 0.23733, 0, 1, 0, -0.23733, 0, -0.971429, -53.9977, 2.5, 42.9003)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D196" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.971429, 0, 0.23733, 0, 1, 0, -0.23733, 0, -0.971429, -51.7198, 2.5, 49.8684)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D197" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.60757, 0, -0.794266, 0, 1, 0, 0.794266, 0, 0.60757, -58.8868, 2.5, 60.5705)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D198" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.60757, 0, -0.794266, 0, 1, 0, 0.794266, 0, 0.60757, -53.4153, 2.5, 62.4596)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D199" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.60757, 0, -0.794266, 0, 1, 0, 0.794266, 0, 0.60757, -59.359, 2.5, 54.6896)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D200" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.60757, 0, -0.794266, 0, 1, 0, 0.794266, 0, 0.60757, -56.7612, 2.5, 47.8344)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D201" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.455234, 0, -0.890372, 0, 1, 0, 0.890372, 0, -0.455234, -74.0545, 2.5, 53.5504)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D202" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.455234, 0, -0.890372, 0, 1, 0, 0.890372, 0, -0.455234, -73.4035, 2.5, 59.3021)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D203" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.455234, 0, -0.890372, 0, 1, 0, 0.890372, 0, -0.455234, -68.9501, 2.5, 50.5919)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D204" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.455234, 0, -0.890372, 0, 1, 0, 0.890372, 0, -0.455234, -61.6444, 2.5, 49.9846)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D205" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.996704, 0, -0.0811207, 0, 1, 0, 0.0811207, 0, 0.996704, -44.8191, 2.5, 81.0443)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D206" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.996704, 0, -0.0811207, 0, 1, 0, 0.0811207, 0, 0.996704, -39.7508, 2.5, 78.2482)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D207" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.996704, 0, -0.0811207, 0, 1, 0, 0.0811207, 0, 0.996704, -49.5012, 2.5, 77.4546)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D208" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.996704, 0, -0.0811207, 0, 1, 0, 0.0811207, 0, 0.996704, -52.8497, 2.5, 70.9331)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D209" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.725254, 0, 0.688481, 0, 1, 0, -0.688481, 0, -0.725254, -47.4607, 2.5, 59.2345)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D210" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.725254, 0, 0.688481, 0, 1, 0, -0.688481, 0, -0.725254, -53.1617, 2.5, 58.2321)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D211" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.725254, 0, 0.688481, 0, 1, 0, -0.688481, 0, -0.725254, -46.0667, 2.5, 64.9672)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D212" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.725254, 0, 0.688481, 0, 1, 0, -0.688481, 0, -0.725254, -47.5506, 2.5, 72.1464)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D213" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.309083, 0, 0.951035, 0, 1, 0, -0.951035, 0, 0.309083, -31.3755, 2.5, 63.774)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D214" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.309083, 0, 0.951035, 0, 1, 0, -0.951035, 0, 0.309083, -32.9257, 2.5, 58.197)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D215" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.309083, 0, 0.951035, 0, 1, 0, -0.951035, 0, 0.309083, -35.9493, 2.5, 67.5007)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D216" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.309083, 0, 0.951035, 0, 1, 0, -0.951035, 0, 0.309083, -43.0678, 2.5, 69.2528)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D217" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.85202, 0, -0.52351, 0, 1, 0, 0.52351, 0, 0.85202, -93.47, 2.5, 15.9755)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D218" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.85202, 0, -0.52351, 0, 1, 0, 0.52351, 0, 0.85202, -87.685, 2.5, 15.7765)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D219" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.85202, 0, -0.52351, 0, 1, 0, 0.52351, 0, 0.85202, -96.02, 2.5, 10.6552)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D220" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.85202, 0, -0.52351, 0, 1, 0, 0.52351, 0, 0.85202, -96.0537, 2.5, 3.32436)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D221" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.335041, 0, 0.942204, 0, 1, 0, -0.942204, 0, -0.335041, -85.9528, 2.5, -4.66766)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D222" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.335041, 0, 0.942204, 0, 1, 0, -0.942204, 0, -0.335041, -90.5825, 2.5, -8.14213)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D223" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.335041, 0, 0.942204, 0, 1, 0, -0.942204, 0, -0.335041, -87.3049, 2.5, 1.07513)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D224" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.335041, 0, 0.942204, 0, 1, 0, -0.942204, 0, -0.335041, -91.8779, 2.5, 6.80493)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D225" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.706106, 0, 0.708106, 0, 1, 0, -0.708106, 0, 0.706106, -73.6649, 2.5, 6.66144)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D226" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.706106, 0, 0.708106, 0, 1, 0, -0.708106, 0, 0.706106, -72.5226, 2.5, 0.986825)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D227" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.706106, 0, 0.708106, 0, 1, 0, -0.708106, 0, 0.706106, -79.4303, 2.5, 7.914)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D228" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.706106, 0, 0.708106, 0, 1, 0, -0.708106, 0, 0.706106, -86.5708, 2.5, 6.254)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D229" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.00335076, 0, -0.999994, 0, 1, 0, 0.999994, 0, -0.00335076, -81.1411, 2.5, 20.8958)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D230" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.00335076, 0, -0.999994, 0, 1, 0, 0.999994, 0, -0.00335076, -77.9592, 2.5, 25.7313)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D231" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.00335076, 0, -0.999994, 0, 1, 0, 0.999994, 0, -0.00335076, -77.9265, 2.5, 15.9487)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D232" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.00335076, 0, -0.999994, 0, 1, 0, 0.999994, 0, -0.00335076, -71.6852, 2.5, 12.1031)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D233" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.629985, 0, 0.776608, 0, 1, 0, -0.776608, 0, 0.629985, -59.6028, 2.5, 16.5658)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D234" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.629985, 0, 0.776608, 0, 1, 0, -0.776608, 0, 0.629985, -59.0468, 2.5, 10.8042)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D235" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.629985, 0, 0.776608, 0, 1, 0, -0.776608, 0, 0.629985, -65.2097, 2.5, 18.4014)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D236" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.629985, 0, 0.776608, 0, 1, 0, -0.776608, 0, 0.629985, -72.4826, 2.5, 17.4804)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D237" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.972194, 0, -0.234175, 0, 1, 0, 0.234175, 0, 0.972194, -62.8775, 2.5, 32.9554)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D238" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.972194, 0, -0.234175, 0, 1, 0, 0.234175, 0, 0.972194, -57.4379, 2.5, 30.9761)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D239" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.972194, 0, -0.234175, 0, 1, 0, 0.234175, 0, 0.972194, -66.9486, 2.5, 28.6853)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D240" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.972194, 0, -0.234175, 0, 1, 0, 0.234175, 0, 0.972194, -69.2491, 2.5, 21.7247)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D241" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.154435, 0, 0.988003, 0, 1, 0, -0.988003, 0, -0.154435, -42.9906, 2.5, -1.90343)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D242" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.154435, 0, 0.988003, 0, 1, 0, -0.988003, 0, -0.154435, -46.8954, 2.5, -6.17646)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D243" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.154435, 0, 0.988003, 0, 1, 0, -0.988003, 0, -0.154435, -45.3846, 2.5, 3.48885)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D244" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.154435, 0, 0.988003, 0, 1, 0, -0.988003, 0, -0.154435, -50.9411, 2.5, 8.27084)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D245" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.499592, 0, -0.866261, 0, 1, 0, 0.866261, 0, -0.499592, -63.5762, 2.5, 5.76989)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D246" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.499592, 0, -0.866261, 0, 1, 0, 0.866261, 0, -0.499592, -63.2163, 2.5, 11.5471)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D247" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.499592, 0, -0.866261, 0, 1, 0, 0.866261, 0, -0.499592, -58.329, 2.5, 3.07276)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D248" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.499592, 0, -0.866261, 0, 1, 0, 0.866261, 0, -0.499592, -51.0019, 2.5, 2.83499)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D296" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.499592, 0, -0.866261, 0, 1, 0, 0.866261, 0, -0.499592, -63.5762, 2.5, -60.2307)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D297" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.499592, 0, -0.866261, 0, 1, 0, 0.866261, 0, -0.499592, -63.2163, 2.5, -54.4535)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D298" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.499592, 0, -0.866261, 0, 1, 0, 0.866261, 0, -0.499592, -58.329, 2.5, -62.9278)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D299" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.499592, 0, -0.866261, 0, 1, 0, 0.866261, 0, -0.499592, -51.0019, 2.5, -63.1656)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D300" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.919691, 0, -0.392643, 0, 1, 0, 0.392643, 0, -0.919691, -53.3983, 2.5, -73.2709)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D301" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.919691, 0, -0.392643, 0, 1, 0, 0.392643, 0, -0.919691, -56.5799, 2.5, -68.4353)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D302" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.919691, 0, -0.392643, 0, 1, 0, 0.392643, 0, -0.919691, -47.5829, 2.5, -72.2764)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D303" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.919691, 0, -0.392643, 0, 1, 0, 0.392643, 0, -0.919691, -41.5814, 2.5, -68.0663)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D304" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.678275, 0, 0.734808, 0, 1, 0, -0.734808, 0, 0.678275, -49.3214, 2.5, -50.8659)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D305" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.678275, 0, 0.734808, 0, 1, 0, -0.734808, 0, 0.678275, -48.3988, 2.5, -56.5803)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D306" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.678275, 0, 0.734808, 0, 1, 0, -0.734808, 0, 0.678275, -55.0341, 2.5, -49.3919)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D307" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.678275, 0, 0.734808, 0, 1, 0, -0.734808, 0, 0.678275, -62.2333, 2.5, -50.7753)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D308" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.355808, 0, -0.934559, 0, 1, 0, 0.934559, 0, -0.355808, 13.0612, 2.5, -20.9305)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D309" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.355808, 0, -0.934559, 0, 1, 0, 0.934559, 0, -0.355808, 14.3332, 2.5, -15.2835)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D310" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.355808, 0, -0.934559, 0, 1, 0, 0.934559, 0, -0.355808, 17.814, 2.5, -24.426)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D311" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.355808, 0, -0.934559, 0, 1, 0, 0.934559, 0, -0.355808, 25.0105, 2.5, -25.8234)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D312" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.355808, 0, -0.934559, 0, 1, 0, 0.934559, 0, -0.355808, 17.6766, 2.5, -16.6646)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D313" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.355808, 0, -0.934559, 0, 1, 0, 0.934559, 0, -0.355808, 18.9487, 2.5, -11.0176)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D314" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.355808, 0, -0.934559, 0, 1, 0, 0.934559, 0, -0.355808, 22.4294, 2.5, -20.1601)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D315" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.355808, 0, -0.934559, 0, 1, 0, 0.934559, 0, -0.355808, 29.6259, 2.5, -21.5575)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D316" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.803607, 0, -0.59516, 0, 1, 0, 0.59516, 0, -0.803607, 31.9803, 2.5, 24.3801)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D317" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.803607, 0, -0.59516, 0, 1, 0, 0.59516, 0, -0.803607, 30.0064, 2.5, 29.8215)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D318" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.803607, 0, -0.59516, 0, 1, 0, 0.59516, 0, -0.803607, 37.8678, 2.5, 23.9993)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D319" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.803607, 0, -0.59516, 0, 1, 0, 0.59516, 0, -0.803607, 44.6818, 2.5, 26.7033)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D249" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.996962, 0, 0.0778847, 0, 1, 0, -0.0778847, 0, -0.996962, -62.9279, 2.5, -10.931)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D289" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.454472, 0, -0.890761, 0, 1, 0, 0.890761, 0, -0.454472, -43.3413, 2.5, -35.5546)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D290" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.454472, 0, -0.890761, 0, 1, 0, 0.890761, 0, -0.454472, -36.0361, 2.5, -36.1682)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D291" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.912749, 0, 0.408522, 0, 1, 0, -0.408522, 0, 0.912749, -27.2701, 2.5, -26.7311)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D292" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.912749, 0, 0.408522, 0, 1, 0, -0.408522, 0, 0.912749, -24.1728, 2.5, -31.6211)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D293" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.912749, 0, 0.408522, 0, 1, 0, -0.408522, 0, 0.912749, -33.1019, 2.5, -27.6247)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D294" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.912749, 0, 0.408522, 0, 1, 0, -0.408522, 0, 0.912749, -39.1755, 2.5, -31.7301)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D295" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.761742, 0, -0.64788, 0, 1, 0, 0.64788, 0, 0.761742, -37.5917, 2.5, -13.5856)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D250" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.996962, 0, 0.0778847, 0, 1, 0, -0.0778847, 0, -0.996962, -67.9871, 2.5, -8.1185)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D251" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.996962, 0, 0.0778847, 0, 1, 0, -0.0778847, 0, -0.996962, -58.2341, 2.5, -7.35658)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D252" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.996962, 0, 0.0778847, 0, 1, 0, -0.0778847, 0, -0.996962, -54.8645, 2.5, -0.845988)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D253" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.72697, 0, -0.686669, 0, 1, 0, 0.686669, 0, -0.72697, -19.4217, 2.5, -15.7206)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D254" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.72697, 0, -0.686669, 0, 1, 0, 0.686669, 0, -0.72697, -20.7332, 2.5, -10.0827)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D255" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.72697, 0, -0.686669, 0, 1, 0, 0.686669, 0, -0.72697, -13.6215, 2.5, -16.8002)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D256" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.72697, 0, -0.686669, 0, 1, 0, 0.686669, 0, -0.72697, -6.53382, 2.5, -14.9274)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D257" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.996904, 0, 0.0786333, 0, 1, 0, -0.0786333, 0, 0.996904, -1.44185, 2.5, -3.09636)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D258" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.996904, 0, 0.0786333, 0, 1, 0, -0.0786333, 0, 0.996904, 3.11654, 2.5, -6.66387)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D259" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.996904, 0, 0.0786333, 0, 1, 0, -0.0786333, 0, 0.996904, -6.63584, 2.5, -5.89462)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D260" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.996904, 0, 0.0786333, 0, 1, 0, -0.0786333, 0, 0.996904, -10.9801, 2.5, -11.7997)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D261" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.500242, 0, -0.865886, 0, 1, 0, 0.865886, 0, 0.500242, -15.5754, 2.5, 5.8246)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D262" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.500242, 0, -0.865886, 0, 1, 0, 0.865886, 0, 0.500242, -10.3927, 2.5, 8.40254)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D263" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.500242, 0, -0.865886, 0, 1, 0, 0.865886, 0, 0.500242, -15.2864, 2.5, -0.0681343)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D264" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.500242, 0, -0.865886, 0, 1, 0, 0.865886, 0, 0.500242, -11.8275, 2.5, -6.53177)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D265" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.964755, 0, 0.263149, 0, 1, 0, -0.263149, 0, -0.964755, -27.3774, 2.5, -5.09431)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D266" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.964755, 0, 0.263149, 0, 1, 0, -0.263149, 0, -0.964755, -32.8737, 2.5, -3.27864)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D267" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.964755, 0, 0.263149, 0, 1, 0, -0.263149, 0, -0.964755, -23.4358, 2.5, -0.704354)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D268" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.964755, 0, 0.263149, 0, 1, 0, -0.263149, 0, -0.964755, -21.3446, 2.5, 6.32197)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D269" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.586175, 0, -0.810185, 0, 1, 0, 0.810185, 0, 0.586175, -28.7943, 2.5, 16.8292)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D270" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.586175, 0, -0.810185, 0, 1, 0, 0.810185, 0, 0.586175, -23.3752, 2.5, 18.8635)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D271" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.586175, 0, -0.810185, 0, 1, 0, 0.810185, 0, 0.586175, -29.1095, 2.5, 10.9378)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D272" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.586175, 0, -0.810185, 0, 1, 0, 0.810185, 0, 0.586175, -26.3299, 2.5, 4.15428)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D273" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.478814, 0, -0.877916, 0, 1, 0, 0.877916, 0, -0.478814, -43.7694, 2.5, 9.4071)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D274" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.478814, 0, -0.877916, 0, 1, 0, 0.877916, 0, -0.478814, -43.272, 2.5, 15.1741)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D275" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.478814, 0, -0.877916, 0, 1, 0, 0.877916, 0, -0.478814, -38.588, 2.5, 6.58579)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D276" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.478814, 0, -0.877916, 0, 1, 0, 0.877916, 0, -0.478814, -31.2686, 2.5, 6.17353)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D277" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.994187, 0, -0.10767, 0, 1, 0, 0.10767, 0, 0.994187, -15.2776, 2.5, 37.6708)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D278" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.994187, 0, -0.10767, 0, 1, 0, 0.10767, 0, 0.994187, -10.1365, 2.5, 35.0109)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D279" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.994187, 0, -0.10767, 0, 1, 0, 0.10767, 0, 0.994187, -19.8623, 2.5, 33.9576)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D280" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.994187, 0, -0.10767, 0, 1, 0, 0.10767, 0, 0.994187, -23.0357, 2.5, 27.3491)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D281" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.706638, 0, 0.707576, 0, 1, 0, -0.707576, 0, -0.706638, -17.3367, 2.5, 15.7983)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D282" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.706638, 0, 0.707576, 0, 1, 0, -0.707576, 0, -0.706638, -23.0089, 2.5, 14.6442)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D283" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.706638, 0, 0.707576, 0, 1, 0, -0.707576, 0, -0.706638, -16.0961, 2.5, 21.5662)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D284" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(-0.706638, 0, 0.707576, 0, 1, 0, -0.707576, 0, -0.706638, -17.7709, 2.5, 28.7033)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D285" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.334333, 0, 0.942455, 0, 1, 0, -0.942455, 0, 0.334333, -1.37827, 2.5, 20.7652)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D286" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.334333, 0, 0.942455, 0, 1, 0, -0.942455, 0, 0.334333, -2.77917, 2.5, 15.1488)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D287" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.334333, 0, 0.942455, 0, 1, 0, -0.942455, 0, 0.334333, -6.04983, 2.5, 24.3686)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="CSGMesh3D288" type="CSGMesh3D" parent="Arbre"]
+transform = Transform3D(0.334333, 0, 0.942455, 0, 1, 0, -0.942455, 0, 0.334333, -13.2125, 2.5, 25.9302)
+use_collision = true
+mesh = SubResource("BoxMesh_pk447")
+metadata/_edit_lock_ = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -498.708, 106.665, -0.592999)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0eumw")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.950163, 0, -0.311754, 0, 1, 0, 0.311754, 0, -0.950163, 0, 3.42706, 0)
+
+[node name="Menu" parent="." instance=ExtResource("3_q8p0b")]
+visible = false
+
+[node name="HUDLivre" parent="." instance=ExtResource("5_e6vxp")]
+visible = false
+
+[connection signal="show_book" from="Menu" to="." method="_on_menu_show_book"]
