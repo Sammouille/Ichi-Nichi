@@ -156,7 +156,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 		sprint = false
 		
 	if Input.is_action_just_pressed("ui_accept"):
-		lanterne = true
+		get_parent()._allumer_lanterne()
 	
 
 func _physics_process(delta: float) -> void:
