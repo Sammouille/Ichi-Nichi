@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://b3h6ax4qyh4ee" path="res://Assets/2D/fondnoir.jpg" id="1_6yk7w"]
 [ext_resource type="Script" path="res://ScriptsEtScenes/UI/options.gd" id="1_8eq7t"]
 [ext_resource type="Theme" uid="uid://dyv0gggkiltum" path="res://Assets/FontTheme/OD_24px.tres" id="2_6yoqx"]
-[ext_resource type="Texture2D" uid="uid://bts3jrcx17w3n" path="res://Assets/2D/Input/keyboard_logo_input.png" id="4_g5qcj"]
-[ext_resource type="Texture2D" uid="uid://bv0s84a12blhl" path="res://Assets/2D/Input/controler_logo_input.png" id="4_s3vb7"]
+[ext_resource type="Texture2D" uid="uid://ctofb8aff2stl" path="res://Assets/2D/Input/keyboard_logo_inputv2.png" id="4_yau72"]
+[ext_resource type="Texture2D" uid="uid://ca70tdot2gtby" path="res://Assets/2D/Input/controler_logo_inputv2.png" id="5_t6283"]
 
 [node name="Options" type="CanvasLayer"]
 process_mode = 3
@@ -109,7 +109,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_6yoqx")
-texture = ExtResource("4_g5qcj")
+texture = ExtResource("4_yau72")
 metadata/_edit_lock_ = true
 
 [node name="LabelDeplacement" type="Label" parent="ShowInput/KeyboardInput"]
@@ -166,6 +166,15 @@ offset_bottom = 206.0
 text = "Caméra"
 horizontal_alignment = 1
 
+[node name="LabelCourir" type="Label" parent="ShowInput/KeyboardInput"]
+layout_mode = 0
+offset_left = 309.0
+offset_top = 534.0
+offset_right = 534.0
+offset_bottom = 579.0
+text = "Courir"
+horizontal_alignment = 1
+
 [node name="ControllerInput" type="TextureRect" parent="ShowInput"]
 layout_mode = 1
 anchors_preset = 15
@@ -174,7 +183,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_6yoqx")
-texture = ExtResource("4_s3vb7")
+texture = ExtResource("5_t6283")
 expand_mode = 1
 stretch_mode = 4
 metadata/_edit_lock_ = true
@@ -241,10 +250,10 @@ metadata/_edit_lock_ = true
 
 [node name="VBoxButtonInput" type="VBoxContainer" parent="ShowInput"]
 layout_mode = 1
-offset_left = 124.0
-offset_top = 410.0
-offset_right = 266.0
-offset_bottom = 609.0
+offset_left = 61.0
+offset_top = 411.0
+offset_right = 203.0
+offset_bottom = 610.0
 theme_override_constants/separation = 20
 
 [node name="ButtonController" type="Button" parent="ShowInput/VBoxButtonInput"]
