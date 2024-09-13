@@ -14,11 +14,16 @@ extends CharacterBody3D
 
 var orientation_pcam : float
 
-const BASE_SPEED = 1.5
-const JUMP_VELOCITY = 4.5
+const BASE_SPEED = 1
+const JUMP_VELOCITY = 11
+const MAX_SPEED = 7
 
 var vitesse = BASE_SPEED
+var input_dir : Vector2
+var sprint = false
+var direction 
 
+var peut_manger = false
 
 var pnj_in_range = null
 var collectible_in_range = null
@@ -114,20 +119,46 @@ func _input(event: InputEvent) -> void:
 			collectible_in_range.queue_free()
 			collectible_in_range = null
 	
+	if Input.is_action_just_released("Interact") and peut_manger:
+		get_parent()._va_manger()
 	
 	if ( Input.is_action_just_pressed("manette_retour_menu") or Input.is_action_just_pressed("Pause") ) and dialog.visible:
 		dialog.visible = false
 
 func _unhandled_input(_event: InputEvent) -> void:
-	#if event.is_action("bouger_avant") or event.is_action("bouger_arriere") or event.is_action("bouger_gauche") or event.is_action("bouger_droite"):
-		vitesse = BASE_SPEED + (Input.get_action_strength("bouger_arriere") + Input.get_action_strength("bouger_avant") + Input.get_action_strength("bouger_droite") + Input.get_action_strength("bouger_gauche")) * 3
+	if Input.is_action_just_pressed("Sprint"):
+		if not is_on_floor() :
+			await is_on_floor()
+		sprint = true
+	if Input.is_action_just_released("Sprint"):
+		if not is_on_floor() :
+			await is_on_floor()
+		sprint = false
+		
+	if Input.is_action_just_pressed("ui_accept"):
+		lanterne = true
+
 
 func _physics_process(delta: float) -> void:
+	
+	if is_on_floor() :
+		if sprint :
+			vitesse += (BASE_SPEED + clampf((Input.get_action_strength("bouger_arriere") + Input.get_action_strength("bouger_avant") + Input.get_action_strength("bouger_droite") + Input.get_action_strength("bouger_gauche")), 0, 1))*0.3
+			vitesse = clampf(vitesse, 0, MAX_SPEED)
+		
+		else : 
+			vitesse = BASE_SPEED + clampf((Input.get_action_strength("bouger_arriere") + Input.get_action_strength("bouger_avant") + Input.get_action_strength("bouger_droite") + Input.get_action_strength("bouger_gauche")), 0, 1) * 3
+	
+	elif sprint :
+		vitesse += (4/3) * vitesse
+		vitesse = clampf(vitesse, 0, MAX_SPEED * 1.1)
+	
+	
 	
 	orientation_pcam = pcam.global_rotation.y
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += get_gravity() * delta * 4
 
 	# Handle jump.
 	if Input.is_action_just_pressed("Saut") and is_on_floor():
@@ -135,8 +166,9 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("bouger_gauche", "bouger_droite", "bouger_avant", "bouger_arriere")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized().rotated(Vector3.UP, orientation_pcam)
+	if is_on_floor():
+		input_dir = Input.get_vector("bouger_gauche", "bouger_droite", "bouger_avant", "bouger_arriere")
+		direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized().rotated(Vector3.UP, orientation_pcam)
 	if direction:
 		velocity.x = direction.x * vitesse
 		velocity.z = direction.z * vitesse
