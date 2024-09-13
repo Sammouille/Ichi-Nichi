@@ -10,10 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://b3h6ax4qyh4ee" path="res://Assets/2D/fondnoir.jpg" id="7_byc1i"]
 [ext_resource type="Theme" uid="uid://boqcbpouxoop8" path="res://Assets/FontTheme/OD_16px.tres" id="8_5376s"]
 [ext_resource type="Theme" uid="uid://dyv0gggkiltum" path="res://Assets/FontTheme/OD_24px.tres" id="8_q56jx"]
-[ext_resource type="Texture2D" uid="uid://bqt4hfv7hqmuh" path="res://Assets/2D/object/64x64/bonbon.png" id="9_ieigg"]
-[ext_resource type="Texture2D" uid="uid://cqdm8y5lcpvr4" path="res://Assets/2D/object/64x64/poupee.png" id="10_fjl37"]
-[ext_resource type="Texture2D" uid="uid://cqfe2lsjoak3g" path="res://Assets/2D/object/64x64/lanterne.png" id="11_1jhb5"]
-[ext_resource type="Texture2D" uid="uid://bi8byen4dynek" path="res://Assets/2D/object/64x64/fossile.png" id="12_sik1u"]
+[ext_resource type="Texture2D" uid="uid://k343sglok5s7" path="res://Assets/2D/design_anissa/64x64/lanternecassee.png" id="9_vjcrj"]
+[ext_resource type="Texture2D" uid="uid://c56rr0wue3v0m" path="res://Assets/2D/design_anissa/64x64/poupee.png" id="10_jleet"]
+[ext_resource type="Texture2D" uid="uid://dd3uny387ix1p" path="res://Assets/2D/design_anissa/64x64/bonbon.png" id="11_nx8l1"]
+[ext_resource type="Texture2D" uid="uid://b3w2cw0jlio0g" path="res://Assets/2D/design_anissa/64x64/fossile.png" id="12_3w0r0"]
 [ext_resource type="Texture2D" uid="uid://ujs5jdvmkdbe" path="res://Assets/2D/Input/indication_interact_v2.png" id="13_5ctmx"]
 [ext_resource type="Texture2D" uid="uid://cadmv1cqrci1t" path="res://Assets/2D/livre_ferme_logo.png" id="15_ltrfw"]
 [ext_resource type="Texture2D" uid="uid://bd8ksuamo1cs5" path="res://Assets/2D/Input/indication_livre.png" id="16_5x4d7"]
@@ -129,24 +129,20 @@ theme_override_constants/separation = 30
 metadata/_edit_lock_ = true
 
 [node name="lanterne" type="TextureRect" parent="CharacterBody3D/Object/HBoxObject"]
-visible = false
 layout_mode = 2
-texture = ExtResource("11_1jhb5")
+texture = ExtResource("9_vjcrj")
 
 [node name="poupee" type="TextureRect" parent="CharacterBody3D/Object/HBoxObject"]
-visible = false
 layout_mode = 2
-texture = ExtResource("10_fjl37")
+texture = ExtResource("10_jleet")
 
 [node name="bonbon" type="TextureRect" parent="CharacterBody3D/Object/HBoxObject"]
-visible = false
 layout_mode = 2
-texture = ExtResource("9_ieigg")
+texture = ExtResource("11_nx8l1")
 
 [node name="fossile" type="TextureRect" parent="CharacterBody3D/Object/HBoxObject"]
-visible = false
 layout_mode = 2
-texture = ExtResource("12_sik1u")
+texture = ExtResource("12_3w0r0")
 
 [node name="IndicInteract" type="TextureRect" parent="CharacterBody3D/Object"]
 visible = false
