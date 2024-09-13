@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b1rrltdjkgbfv"]
+[gd_scene load_steps=27 format=3 uid="uid://b1rrltdjkgbfv"]
 
 [ext_resource type="Script" path="res://ScriptsEtScenes/Personnage/perso.gd" id="1_ll3eq"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_yuuvw"]
@@ -46,6 +46,14 @@ far = 4000.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_axb8s"]
 radius = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f7o8x"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_jer0p"]
+material = SubResource("StandardMaterial3D_f7o8x")
+radius = 0.1
+height = 0.2
 
 [node name="Perso" type="Node3D"]
 script = ExtResource("1_ll3eq")
@@ -213,6 +221,28 @@ shape = SubResource("SphereShape3D_axb8s")
 
 [node name="BruitDePas" type="AudioStreamPlayer3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.74992, 0)
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="CharacterBody3D"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+top_level = true
+emitting = false
+amount = 32
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.91
+randomness = 0.45
+mesh = SubResource("SphereMesh_jer0p")
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 0)
+emission_ring_height = 0.5
+emission_ring_radius = 0.2
+emission_ring_inner_radius = 0.5
+spread = 90.85
+gravity = Vector3(0, -2, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+angular_velocity_min = 258.11
+angular_velocity_max = 258.11
 stream = ExtResource("18_yfyyl")
 
 [node name="Camera3D" type="Camera3D" parent="."]

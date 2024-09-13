@@ -16,6 +16,8 @@ extends CanvasLayer
 @warning_ignore("unused_signal")
 signal hiding_livre
 
+signal open_livre
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	button_back.grab_focus()
@@ -81,3 +83,4 @@ func _on_button_back_pressed() -> void:
 func _on_visibility_changed() -> void:
 	if self.visible:
 		button_back.grab_focus()
+		emit_signal("open_livre")
