@@ -4,6 +4,7 @@ signal criquet_obtained
 signal scarabe_obtained
 signal luciole_obtained
 signal shiny_obtained
+signal chaise_obtained
 
 var flip_flop_lanterne = false
 
@@ -45,3 +46,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 		else :
 			flip_flop_lanterne = false
 			lumiere_lanterne.hide()
+
+
+func _on_character_body_3d_chaise_obtained() -> void:
+	emit_signal("chaise_obtained")

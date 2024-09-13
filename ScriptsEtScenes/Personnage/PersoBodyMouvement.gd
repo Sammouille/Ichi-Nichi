@@ -54,6 +54,7 @@ signal scarabe_obtained
 signal luciole_obtained
 @warning_ignore("unused_signal")
 signal shiny_obtained
+signal chaise_obtained
 
 @warning_ignore("unused_parameter")
 func _input(event: InputEvent) -> void:
@@ -131,6 +132,14 @@ func _input(event: InputEvent) -> void:
 		elif collectible_in_range.name == "Shiny":
 			shiny = true
 			emit_signal("shiny_obtained")
+			particle_catch()
+			collectible_in_range.queue_free()
+			collectible_in_range = null
+			new_insect()
+		
+		elif collectible_in_range.name == "Scarinho":
+			chaise = true
+			emit_signal("chaise_obtained")
 			particle_catch()
 			collectible_in_range.queue_free()
 			collectible_in_range = null

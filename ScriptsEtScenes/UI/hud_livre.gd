@@ -21,7 +21,7 @@ signal open_livre
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	button_back.grab_focus()
-	chaise_obtained()
+	#chaise_obtained()
 
 
 @warning_ignore("unused_parameter")
@@ -84,3 +84,7 @@ func _on_visibility_changed() -> void:
 	if self.visible:
 		button_back.grab_focus()
 		emit_signal("open_livre")
+
+
+func _on_perso_chaise_obtained() -> void:
+	chaise_obtained()
