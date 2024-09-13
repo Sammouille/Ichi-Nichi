@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b1rrltdjkgbfv"]
+[gd_scene load_steps=26 format=3 uid="uid://b1rrltdjkgbfv"]
 
 [ext_resource type="Script" path="res://ScriptsEtScenes/Personnage/perso.gd" id="1_ll3eq"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_yuuvw"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cadmv1cqrci1t" path="res://Assets/2D/livre_ferme_logo.png" id="15_ltrfw"]
 [ext_resource type="Texture2D" uid="uid://bd8ksuamo1cs5" path="res://Assets/2D/Input/indication_livre.png" id="16_5x4d7"]
 [ext_resource type="Texture2D" uid="uid://rab40xjk33uf" path="res://Assets/2D/notif.png" id="17_jy7mh"]
+[ext_resource type="AudioStream" uid="uid://bxbenx01ox3iu" path="res://Assets/Sons/Bruit_de_pas.mp3" id="18_yfyyl"]
 
 [sub_resource type="Resource" id="Resource_mup55"]
 script = ExtResource("3_ufb3x")
@@ -212,6 +213,7 @@ shape = SubResource("SphereShape3D_axb8s")
 
 [node name="BruitDePas" type="AudioStreamPlayer3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.74992, 0)
+stream = ExtResource("18_yfyyl")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 0, -2.18557e-07)
