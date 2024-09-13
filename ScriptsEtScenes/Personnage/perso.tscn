@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b1rrltdjkgbfv"]
+[gd_scene load_steps=25 format=3 uid="uid://b1rrltdjkgbfv"]
 
 [ext_resource type="Script" path="res://ScriptsEtScenes/Personnage/perso.gd" id="1_ll3eq"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_yuuvw"]
@@ -15,6 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://cqfe2lsjoak3g" path="res://Assets/2D/object/64x64/lanterne.png" id="11_1jhb5"]
 [ext_resource type="Texture2D" uid="uid://bi8byen4dynek" path="res://Assets/2D/object/64x64/fossile.png" id="12_sik1u"]
 [ext_resource type="Texture2D" uid="uid://ujs5jdvmkdbe" path="res://Assets/2D/Input/indication_interact_v2.png" id="13_5ctmx"]
+[ext_resource type="Texture2D" uid="uid://cadmv1cqrci1t" path="res://Assets/2D/livre_ferme_logo.png" id="15_ltrfw"]
+[ext_resource type="Texture2D" uid="uid://bd8ksuamo1cs5" path="res://Assets/2D/Input/indication_livre.png" id="16_5x4d7"]
+[ext_resource type="Texture2D" uid="uid://rab40xjk33uf" path="res://Assets/2D/notif.png" id="17_jy7mh"]
 
 [sub_resource type="Resource" id="Resource_mup55"]
 script = ExtResource("3_ufb3x")
@@ -163,6 +166,44 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("8_5376s")
 text = "INTERACT"
+
+[node name="LivreInfo" type="TextureRect" parent="CharacterBody3D/Object"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -161.0
+offset_top = 16.0
+offset_right = -14.0
+offset_bottom = 121.0
+grow_horizontal = 0
+texture = ExtResource("15_ltrfw")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="IndicInput" type="TextureRect" parent="CharacterBody3D/Object/LivreInfo"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -106.5
+offset_top = -34.0
+offset_right = 61.5
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("16_5x4d7")
+expand_mode = 1
+
+[node name="Notif" type="TextureRect" parent="CharacterBody3D/Object/LivreInfo"]
+visible = false
+layout_mode = 0
+offset_left = 69.0
+offset_top = -9.0
+offset_right = 109.0
+offset_bottom = 31.0
+texture = ExtResource("17_jy7mh")
 
 [node name="AreaDetectPNJ" type="Area3D" parent="CharacterBody3D"]
 

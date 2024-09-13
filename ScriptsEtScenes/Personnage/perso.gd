@@ -7,6 +7,8 @@ signal shiny_obtained
 
 var flip_flop_lanterne = false
 
+
+
 @export var lumiere_lanterne : Node
 
 @onready var cycle : Node3D = $"../CycleJourNuit"

@@ -12,6 +12,8 @@ extends CharacterBody3D
 
 @onready var indic_interact = $Object/IndicInteract
 
+@onready var notif = $CharacterBody3D/Object/LivreInfo/Notif
+
 var orientation_pcam : float
 
 const BASE_SPEED = 1
@@ -39,6 +41,8 @@ var luciole = false
 var criquet = false
 var shiny = false
 var chaise = true
+
+var new_insect_to_see = false
 
 @warning_ignore("unused_signal")
 signal criquet_obtained
@@ -100,24 +104,32 @@ func _input(event: InputEvent) -> void:
 			emit_signal("criquet_obtained")
 			collectible_in_range.queue_free()
 			collectible_in_range = null
+			new_insect_to_see = true
+			notif.visible = true
 		
 		elif collectible_in_range.name == "Scarabe":
 			scarabe = true
 			emit_signal("scarabe_obtained")
 			collectible_in_range.queue_free()
 			collectible_in_range = null
+			new_insect_to_see = true
+			notif.visible = true
 		
 		elif collectible_in_range.name == "Luciole":
 			luciole = true
 			emit_signal("luciole_obtained")
 			collectible_in_range.queue_free()
 			collectible_in_range = null
+			new_insect_to_see = true
+			notif.visible = true
 		
 		elif collectible_in_range.name == "Shiny":
 			shiny = true
 			emit_signal("shiny_obtained")
 			collectible_in_range.queue_free()
 			collectible_in_range = null
+			new_insect_to_see = true
+			notif.visible = true
 	
 	if Input.is_action_just_released("Interact") and peut_manger:
 		get_parent()._va_manger()
