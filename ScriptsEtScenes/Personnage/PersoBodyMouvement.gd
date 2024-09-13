@@ -16,6 +16,8 @@ extends CharacterBody3D
 
 @onready var cpu_particles = $CPUParticles3D
 
+@onready var bruit_de_pas = $BruitDePas
+
 var orientation_pcam : float
 
 const BASE_SPEED = 1
@@ -69,6 +71,7 @@ func _input(event: InputEvent) -> void:
 		
 		if tmp[1] == "lanterne":
 			lanterne = true
+			get_parent()._allumer_lanterne()
 			lanterne_cassee = false
 			texture_lanterne.modulate = Color.WHITE
 		
@@ -162,8 +165,8 @@ func _unhandled_input(_event: InputEvent) -> void:
 		sprint = false
 		
 	if Input.is_action_just_pressed("ui_accept"):
-		lanterne = true
-
+		get_parent()._allumer_lanterne()
+	
 
 func _physics_process(delta: float) -> void:
 	
@@ -174,11 +177,19 @@ func _physics_process(delta: float) -> void:
 		
 		else : 
 			vitesse = BASE_SPEED + clampf((Input.get_action_strength("bouger_arriere") + Input.get_action_strength("bouger_avant") + Input.get_action_strength("bouger_droite") + Input.get_action_strength("bouger_gauche")), 0, 1) * 3
+		
+		if vitesse > 1 :
+			if not bruit_de_pas.playing :
+				bruit_de_pas.play()
+		else :
+			bruit_de_pas.stop()
 	
 	elif sprint :
 		vitesse += (4/3) * vitesse
 		vitesse = clampf(vitesse, 0, MAX_SPEED * 1.1)
-	
+		
+	else :
+		bruit_de_pas.stop()
 	
 	
 	orientation_pcam = pcam.global_rotation.y

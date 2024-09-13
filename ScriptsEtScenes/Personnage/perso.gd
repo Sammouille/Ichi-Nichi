@@ -4,7 +4,6 @@ signal criquet_obtained
 signal scarabe_obtained
 signal luciole_obtained
 signal shiny_obtained
-signal chaise_obtained
 
 var flip_flop_lanterne = false
 
@@ -38,15 +37,5 @@ func _on_character_body_3d_scarabe_obtained() -> void:
 func _on_character_body_3d_shiny_obtained() -> void:
 	emit_signal("shiny_obtained")
 
-func _unhandled_input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("allumer_lanterne") and $CharacterBody3D.lanterne and lumiere_lanterne :
-		if not flip_flop_lanterne :
-			flip_flop_lanterne = true
-			lumiere_lanterne.show()
-		else :
-			flip_flop_lanterne = false
-			lumiere_lanterne.hide()
-
-
-func _on_character_body_3d_chaise_obtained() -> void:
-	emit_signal("chaise_obtained")
+func _allumer_lanterne():
+	lumiere_lanterne.show()
