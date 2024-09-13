@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 @export var pcam : PhantomCamera3D
 
+@onready var preload_lanterne = preload("res://Assets/2D/design_anissa/64x64/lanterne.png")
+
 @onready var dialog = $Dialog
 @onready var label_dialog = $Dialog/Background/LabelDialogPNJ
 
@@ -73,7 +75,7 @@ func _input(event: InputEvent) -> void:
 			lanterne = true
 			get_parent()._allumer_lanterne()
 			lanterne_cassee = false
-			texture_lanterne.modulate = Color.WHITE
+			texture_lanterne.texture = preload_lanterne
 		
 		if tmp[1] == "donne_bonbon":
 			texture_bonbon.visible = false
@@ -95,7 +97,6 @@ func _input(event: InputEvent) -> void:
 		elif collectible_in_range.name == "LanterneCassee":
 			lanterne_cassee = true
 			texture_lanterne.visible = true
-			texture_lanterne.modulate = Color.RED
 			particle_catch()
 			collectible_in_range.queue_free()
 			collectible_in_range = null

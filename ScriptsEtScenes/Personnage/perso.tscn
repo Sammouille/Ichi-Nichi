@@ -129,18 +129,22 @@ theme_override_constants/separation = 30
 metadata/_edit_lock_ = true
 
 [node name="lanterne" type="TextureRect" parent="CharacterBody3D/Object/HBoxObject"]
+visible = false
 layout_mode = 2
 texture = ExtResource("9_vjcrj")
 
 [node name="poupee" type="TextureRect" parent="CharacterBody3D/Object/HBoxObject"]
+visible = false
 layout_mode = 2
 texture = ExtResource("10_jleet")
 
 [node name="bonbon" type="TextureRect" parent="CharacterBody3D/Object/HBoxObject"]
+visible = false
 layout_mode = 2
 texture = ExtResource("11_nx8l1")
 
 [node name="fossile" type="TextureRect" parent="CharacterBody3D/Object/HBoxObject"]
+visible = false
 layout_mode = 2
 texture = ExtResource("12_3w0r0")
 
