@@ -3,6 +3,8 @@ extends Sprite3D
 @export var perso : Node3D
 @onready var player = null
 
+@onready var audio_hey = $AudioStreamPlayer3D
+
 var interact = {
 	"dr_chen" : "Sache que plus un criquet est vieux, plus il est vif !",
 	"indice_poupee" : "Tu as du trouvé ce criquet aux alentours de la vieille usine. Tu pourrais y trouver un ancien objet qui appartenait à la dame qui est si gentille avec vous.",
@@ -35,4 +37,6 @@ func send_text():
 		return [interact["journee"], ""]
 	else:
 		return [interact["encore"], ""]
-	
+
+func play_hey():
+	audio_hey.play()

@@ -3,6 +3,8 @@ extends Sprite3D
 @export var perso : Node3D
 @onready var player = null
 
+@onready var audio_hey = $AudioStreamPlayer3D
+
 var interact = {
 	"pas_bonbon" : "Tiens bonbon",
 	"pas_poupee" : "Belle journée",
@@ -30,3 +32,6 @@ func send_text():
 	
 	@warning_ignore("unreachable_code")
 	return "erreur texte nullos"
+
+func play_hey():
+	audio_hey.play()

@@ -63,6 +63,7 @@ signal chaise_obtained
 @warning_ignore("unused_parameter")
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_released("Interact") and pnj_in_range != null:
+		pnj_in_range.play_hey()
 		var tmp = pnj_in_range.send_text()
 		label_dialog.text = tmp[0]
 		dialog.visible = true

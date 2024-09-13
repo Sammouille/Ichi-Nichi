@@ -3,6 +3,8 @@ extends Sprite3D
 @export var perso : Node3D
 @onready var player = null
 
+@onready var audio_hey = $AudioStreamPlayer3D
+
 var interact = {
 	"demande_bonbon" : "Si tu me donnes un truc sucré, jte file peut être un indice sur un insecte rare !",
 	"demande_fossile" : "Si tu me donnes un caillou chelou, jte file l'indice.",
@@ -30,3 +32,6 @@ func send_text():
 		return [interact["donne_info"], "donne_fossile"]
 	else:
 		return [interact["dr_bug"], ""]
+
+func play_hey():
+	audio_hey.play()
