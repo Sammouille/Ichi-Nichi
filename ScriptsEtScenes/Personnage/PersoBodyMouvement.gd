@@ -14,6 +14,8 @@ extends CharacterBody3D
 
 @onready var notif_livre = $Object/LivreInfo/Notif
 
+@onready var cpu_particles = $CPUParticles3D
+
 var orientation_pcam : float
 
 const BASE_SPEED = 1
@@ -82,6 +84,7 @@ func _input(event: InputEvent) -> void:
 		if collectible_in_range.name == "Poupee":
 			poupee = true
 			texture_poupee.visible = true
+			particle_catch()
 			collectible_in_range.queue_free()
 			collectible_in_range = null
 		
@@ -89,19 +92,22 @@ func _input(event: InputEvent) -> void:
 			lanterne_cassee = true
 			texture_lanterne.visible = true
 			texture_lanterne.modulate = Color.RED
+			particle_catch()
 			collectible_in_range.queue_free()
 			collectible_in_range = null
 		
 		elif collectible_in_range.name == "Fossile":
 			fossile = true
 			texture_fossile.visible = true
+			particle_catch()
 			collectible_in_range.queue_free()
-			collectible_in_range = null		
+			collectible_in_range = null
 		
 		
 		elif collectible_in_range.name == "Criquet":
 			criquet = true
 			emit_signal("criquet_obtained")
+			particle_catch()
 			collectible_in_range.queue_free()
 			collectible_in_range = null
 			new_insect()
@@ -109,6 +115,7 @@ func _input(event: InputEvent) -> void:
 		elif collectible_in_range.name == "Scarabe":
 			scarabe = true
 			emit_signal("scarabe_obtained")
+			particle_catch()
 			collectible_in_range.queue_free()
 			collectible_in_range = null
 			new_insect()
@@ -116,6 +123,7 @@ func _input(event: InputEvent) -> void:
 		elif collectible_in_range.name == "Luciole":
 			luciole = true
 			emit_signal("luciole_obtained")
+			particle_catch()
 			collectible_in_range.queue_free()
 			collectible_in_range = null
 			new_insect()
@@ -123,6 +131,7 @@ func _input(event: InputEvent) -> void:
 		elif collectible_in_range.name == "Shiny":
 			shiny = true
 			emit_signal("shiny_obtained")
+			particle_catch()
 			collectible_in_range.queue_free()
 			collectible_in_range = null
 			new_insect()
@@ -217,3 +226,8 @@ func new_insect():
 func _on_hud_livre_open_livre() -> void:
 	new_insect_to_see = false
 	notif_livre.visible = false
+
+
+func particle_catch():
+	cpu_particles.global_position = collectible_in_range.global_position
+	cpu_particles.emitting = true
